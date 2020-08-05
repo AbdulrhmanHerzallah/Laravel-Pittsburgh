@@ -2,6 +2,7 @@
 <html>
 <head>
 <x-dashboard.head/>
+@yield('style')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -16,8 +17,7 @@
 
 {{--<x-dashboard.info/>--}}
     <div class="content-wrapper">
-
-        ghjkpllpkhgfchvkl
+        @yield('content')
     </div>
 
 

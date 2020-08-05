@@ -53,29 +53,29 @@
 {{--                        </li>--}}
 {{--                    </ul>--}}
 {{--                </li>--}}
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Widgets
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="pages/widgets.html" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-th"></i>--}}
+{{--                        <p>--}}
+{{--                            Widgets--}}
+{{--                            <span class="right badge badge-danger">New</span>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            Layout Options
+                            Landing Page
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
+{{--                            <span class="badge badge-info right">6</span>--}}
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{route('dashboard.slider.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Top Navigation</p>
+                                <p>Slider</p>
                             </a>
                         </li>
                         <li class="nav-item">

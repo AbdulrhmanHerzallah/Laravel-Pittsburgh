@@ -29,5 +29,14 @@ Route::group(['prefix' => '/' , 'namespace' => 'Web'] , function (){
 
 
 Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashboard.'] , function (){
-    Route::get('/' , ['as' => 'index'  , 'uses' => 'IndexController@index']);
+
+    Route::group(['prefix' => '/slider'  , 'as' => 'slider.'] , function (){
+        Route::get('/' , ['as' => 'index'  , 'uses' => 'IndexController@index']);
+        Route::get('/create' , ['as' => 'create' , 'uses' => 'SliderController@create']);
+        Route::post('/store' , ['as' => 'store' , 'uses' => 'SliderController@store']);
+    });
+
+
+
+
 });
