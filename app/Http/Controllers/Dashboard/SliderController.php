@@ -6,12 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\LandingPageSlider;
+use RealRashid\SweetAlert\Facades\Alert;
+use File;
 
 class SliderController extends Controller
 {
     public function create()
     {
-        return view('dashboard.slider.create');
+
+       $slider = LandingPageSlider::all();
+       return view('dashboard.slider.create' , ['slider' => $slider]);
     }
 
 
@@ -20,19 +24,34 @@ class SliderController extends Controller
     {
         if ($request->hasFile('img'))
         {
-
             $timestamp = Carbon::now()->timestamp;
             $file_name = $request->file('img')->getClientOriginalName();
-
             $request->file('img')->move(public_path('img_slider') , $timestamp.'_'.$file_name);
-
             $slider = new LandingPageSlider();
             $slider->title = $request->title;
             $slider->desc = $request->desc;
             $slider->img_url = '/img_slider/'.$timestamp.'_'.$file_name;
             $slider->save();
-
+            Alert::success(__('dashboard_layout.insert_img_successful'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+            return redirect()->back();
         }
+    }
+
+
+
+
+
+    public function delete($id)
+    {
+
+       $file  = LandingPageSlider::findOrFail($id);
+
+        if(File::exists(public_path($file->img_url))) {
+            File::delete(public_path($file->img_url));
+        }
+        LandingPageSlider::findOrFail($id)->delete();
+        Alert::success(__('dashboard_layout.deletion_successful'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+        return redirect()->back();
     }
 
 

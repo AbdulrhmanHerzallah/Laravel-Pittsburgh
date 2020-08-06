@@ -39,8 +39,8 @@
 
 
 
-<div class="container mt-3 mb-5">
-    <div class="container mt-3 mb-3">
-        <img src="logo/Pittsburgh%20Coffee%20Talk%20%5BSocial%20Media%5D.png" width="150px">
+<div class="container mt-3 mb-3">
+    <div class="container mt-3 mb-2">
+        <img src="/logo/ddlogo.png" width="150px">
     </div>
 </div>

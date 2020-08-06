@@ -18,7 +18,7 @@
     <div class="container">
         <div class="card card-primary mt-5">
             <div class="card-header">
-                <h4 class="">{{__('dashboard_layout.slider')}}</h4>
+                <h6 class="">{{__('dashboard_layout.slider')}}</h6>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -57,18 +57,27 @@
             <thead>
             <tr>
                 <th scope="col">العنوان</th>
+                <th scope="col">الوصف</th>
                 <th scope="col">معاينة</th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
+            @foreach($slider as $i)
             <tr>
-                <td>Mark</td>
+                <td>{{$i->title}}</td>
+                <td>{{$i->desc}}</td>
                 <td>
-                    <img src="/img_slider/1596585979_google.png" width="200">
+                    <img src="{{$i->img_url}}" width="200" height="80">
                 </td>
-                <td></td>
+                <td>
+                    <a href="{{route('dashboard.slider.delete' , ['id' => $i->id])}}" style="font-size: 30px" class="text-success"><i class="far fa-edit"></i></a>
+                </td>
+                <td>
+                    <a href="{{route('dashboard.slider.delete' , ['id' => $i->id])}}" style="font-size: 30px" class="text-danger"><i class="fas fa-trash"></i></a>
+                </td>
             </tr>
+            @endforeach
             </tbody>
         </table>
     </div>

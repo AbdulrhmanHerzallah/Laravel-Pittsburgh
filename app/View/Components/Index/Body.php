@@ -3,6 +3,8 @@
 namespace App\View\Components\Index;
 
 use Illuminate\View\Component;
+use App\Models\LandingPageSlider;
+use App\Models\LandingPageContent;
 
 class Body extends Component
 {
@@ -23,6 +25,9 @@ class Body extends Component
      */
     public function render()
     {
-        return view('components.index.body');
+
+        $imgs = LandingPageSlider::all();
+        $data = LandingPageContent::first();
+        return view('components.index.body' , ['imgs' => $imgs , 'data' => $data]);
     }
 }

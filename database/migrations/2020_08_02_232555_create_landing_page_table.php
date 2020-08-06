@@ -20,7 +20,7 @@ class CreateLandingPageTable extends Migration
             $table->longText('target_coffee');
             $table->string('video_title');
             $table->string('video_url');
-            $table->string('img_parallax');
+            $table->string('img_parallax')->nullable();
             $table->bigInteger('meeting_count')->nullable();
             $table->bigInteger('subscribed')->nullable();
             $table->timestamps();

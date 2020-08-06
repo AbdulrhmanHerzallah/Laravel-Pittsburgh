@@ -34,9 +34,14 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
         Route::get('/' , ['as' => 'index'  , 'uses' => 'IndexController@index']);
         Route::get('/create' , ['as' => 'create' , 'uses' => 'SliderController@create']);
         Route::post('/store' , ['as' => 'store' , 'uses' => 'SliderController@store']);
+        Route::get('/delete/{id}' , ['as' => 'delete' , 'uses' => 'SliderController@delete']);
     });
 
+    Route::group(['prefix' => '/content-page'  , 'as' => 'content_page.'] , function (){
+        Route::get('/create' , ['as' => 'create'  , 'uses' => 'PageContentController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'PageContentController@store']);
 
+    });
 
 
 });
