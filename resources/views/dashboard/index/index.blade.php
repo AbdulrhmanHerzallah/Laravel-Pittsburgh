@@ -29,5 +29,7 @@
 
 <x-dashboard.script/>
 
+    @yield('script')
+
 </body>
 </html>

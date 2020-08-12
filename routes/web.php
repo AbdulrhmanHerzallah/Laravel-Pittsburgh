@@ -21,6 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => '/' , 'namespace' => 'Web'] , function (){
     Route::get('/' , ['as' => 'landingPage.index'  , 'uses' => 'LandingPageController@index']);
+
+    Route::group(['prefix' => '/topic' , 'as' => 'topic.'] , function (){
+        Route::get('/{slug}' , ['as' => 'index'  , 'uses' => 'TopicController@index']);
+
+    });
+
 });
 
 
@@ -40,6 +46,41 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
     Route::group(['prefix' => '/content-page'  , 'as' => 'content_page.'] , function (){
         Route::get('/create' , ['as' => 'create'  , 'uses' => 'PageContentController@create']);
         Route::post('/store' , ['as' => 'store'  , 'uses' => 'PageContentController@store']);
+    });
+
+    Route::group(['prefix' => '/volunteer'  , 'as' => 'volunteer.'] , function (){
+        Route::get('/create' , ['as' => 'create'  , 'uses' => 'VolunteerController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'VolunteerController@store']);
+    });
+
+       Route::group(['prefix' => '/footer-social-links'  , 'as' => 'footer_social_links.'] , function (){
+           Route::get('/create' , ['as' => 'create'  , 'uses' => 'FooterLinksController@create']);
+           Route::post('/store' , ['as' => 'store'  , 'uses' => 'FooterLinksController@store']);
+           Route::get('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'FooterLinksController@delete']);
+       });
+
+
+    Route::group(['prefix' => '/trailer'  , 'as' => 'trailer.'] , function (){
+        Route::get('/create' , ['as' => 'create'  , 'uses' => 'TrailerController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'TrailerController@store']);
+//        Route::get('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'TrailerController@delete']);
+    });
+
+    Route::group(['prefix' => '/topic'  , 'as' => 'topic.'] , function (){
+        Route::get('/create/{trailer_id}' , ['as' => 'create'  , 'uses' => 'TopicController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'TopicController@store']);
+//        Route::get('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'TopicController@delete']);
+    });
+
+    Route::group(['prefix' => '/iframe'  , 'as' => 'iframe.'] , function (){
+        Route::get('/create/{trailer_id}' , ['as' => 'create'  , 'uses' => 'IframeController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'IframeController@store']);
+
+    });
+
+    Route::group(['prefix' => '/gestes'  , 'as' => 'gestes.'] , function (){
+        Route::get('/create/{trailer_id}' , ['as' => 'create'  , 'uses' => 'GuestController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'GuestController@store']);
 
     });
 

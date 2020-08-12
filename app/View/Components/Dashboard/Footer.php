@@ -3,6 +3,7 @@
 namespace App\View\Components\Dashboard;
 
 use Illuminate\View\Component;
+use App\Models\FooterSocialLinks;
 
 class Footer extends Component
 {
@@ -11,9 +12,10 @@ class Footer extends Component
      *
      * @return void
      */
+
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -21,8 +23,10 @@ class Footer extends Component
      *
      * @return \Illuminate\View\View|string
      */
+
     public function render()
     {
+
         return view('components.dashboard.footer');
     }
 }

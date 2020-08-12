@@ -8,27 +8,27 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active font-weight-bold">
-                <a class="nav-link" href="#">الرئسية <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-dark" style="font-size: 20px" href="#"><i class="fas fa-home"></i><span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item font-weight-bold">
-                <a class="nav-link" href="#">
+                <a class="nav-link text-dark" href="#">
                     يوتيوب
                 </a>
             </li>
             <li class="nav-item font-weight-bold">
-                <a class="nav-link" href="#">
+                <a class="nav-link text-dark" href="#">
                     تويتر</a>
             </li>
 
             <li class="nav-item font-weight-bold">
-                <a class="nav-link" href="#">
+                <a class="nav-link text-dark" href="#">
                     البرودكاست
                 </a>
             </li>
 
-            <li class="nav-item font-weight-bold">
-                <a class="nav-link" href="#">من نحن</a>
-            </li>
+{{--            <li class="nav-item font-weight-bold">--}}
+{{--                <a class="nav-link" href="#">من نحن</a>--}}
+{{--            </li>--}}
         </ul>
         <form class="navbar-nav mr-auto">
             <input class="form-control mr-sm-2" type="search" placeholder="ابحث عن موضوع" aria-label="Search">
@@ -39,8 +39,8 @@
 
 
 
-<div class="container mt-3 mb-3">
+<div  class="container mt-3 mb-3">
     <div class="container mt-3 mb-2">
-        <img src="/logo/ddlogo.png" width="150px">
+        <img dir="ltr" src="/logo/ddlogo.png" width="150px">
     </div>
 </div>

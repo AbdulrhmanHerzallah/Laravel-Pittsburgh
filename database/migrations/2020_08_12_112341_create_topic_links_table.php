@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopicsTable extends Migration
+class CreateTopicLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,15 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('topic_links', function (Blueprint $table) {
             $table->id();
 
             $table->string('title');
+            $table->string('link');
 
-            $table->longText('note_desc')->nullable();
-            $table->longText('main_desc')->nullable();
-
-            $table->enum('type' , ['y' , 't' , 'p']);
-
-            $table->string('url_id')->nullable();
-            $table->longText('iframe')->nullable();
+            $table->unsignedBigInteger('trailer_id')->index()->nullable();
+            $table->foreign('trailer_id')->references('id')->on('trailers')
+                ->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->timestamps();
         });
@@ -37,6 +34,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topic');
+        Schema::dropIfExists('topic_links');
     }
 }

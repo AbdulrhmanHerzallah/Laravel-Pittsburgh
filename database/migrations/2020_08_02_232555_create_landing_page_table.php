@@ -34,12 +34,12 @@ class CreateLandingPageTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('landing_page_links', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('link');
-            $table->timestamps();
-        });
+//        Schema::create('landing_page_links', function (Blueprint $table) {
+//            $table->id();
+//            $table->string('title');
+//            $table->string('link');
+//            $table->timestamps();
+//        });
 
         Schema::create('landing_page_volunteers', function (Blueprint $table) {
             $table->id();

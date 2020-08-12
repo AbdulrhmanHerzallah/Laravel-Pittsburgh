@@ -3,9 +3,11 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
 <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/bootstrap-rtl.min.css">
+{{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">--}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+
 
 <title>Document</title>
 <style>
@@ -19,15 +21,8 @@
         background-color: #dfe6e9
 
     }
-    .parallax1{
-        background-image: url("/images/kd.jpeg");
-
-    }
     .parallax2{
-        background-image: url("/images/js.png");
         min-height: 600px !important;
-
-
     }
     .parallax {
         /* The image used */

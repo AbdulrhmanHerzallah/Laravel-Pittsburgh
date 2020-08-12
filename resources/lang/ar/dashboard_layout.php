@@ -18,6 +18,15 @@ return [
     'video_title' => 'عنوان الفديو',
     'img_parallax' => 'صورة خلفية الفديو',
     'meeting_count' => 'عدد اللقاءات',
-    'subscribed' => 'عدد المشتركين'
+    'subscribed' => 'عدد المشتركين',
+    'volunteers' => 'المتطوعون',
+    'volunteer_name' => 'اسم المتطوع',
+    'footer_social_links' => 'روابط التواصل (footer)',
+    'type_social' => 'نوع منصة التواصل',
+    'link' => 'الرابط',
+    'topics' => 'الموضوعات',
+    'create_topic' => 'انشاء موضوع',
+    'name' => 'الاسم',
+    'honor_guest' => 'ضيف اساسي',
 
 ];

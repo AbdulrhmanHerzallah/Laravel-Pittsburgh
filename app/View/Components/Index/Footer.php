@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Index;
 
+use App\Models\FooterSocialLinks;
 use Illuminate\View\Component;
 
 class Footer extends Component
@@ -11,9 +12,11 @@ class Footer extends Component
      *
      * @return void
      */
+    public $links;
+
     public function __construct()
     {
-        //
+        $this->links = FooterSocialLinks::all();
     }
 
     /**

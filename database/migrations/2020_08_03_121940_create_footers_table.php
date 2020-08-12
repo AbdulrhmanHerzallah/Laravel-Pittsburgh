@@ -31,8 +31,11 @@ class CreateFootersTable extends Migration
         Schema::create('footer_social_links', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('type');
+            $table->string('type')->unique();
+            $table->string('icon')->unique();
+            $table->string('color')->default('#18191A');
             $table->string('link');
+
             $table->timestamps();
         });
 

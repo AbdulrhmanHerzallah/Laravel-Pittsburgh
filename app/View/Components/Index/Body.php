@@ -5,6 +5,9 @@ namespace App\View\Components\Index;
 use Illuminate\View\Component;
 use App\Models\LandingPageSlider;
 use App\Models\LandingPageContent;
+use Alaouy\Youtube\Facades\Youtube;
+use App\Models\LandingPageVolunteer;
+use PHPUnit\Exception;
 
 class Body extends Component
 {
@@ -13,9 +16,11 @@ class Body extends Component
      *
      * @return void
      */
-    public function __construct()
+
+    public $trailer;
+    public function __construct($trailer)
     {
-        //
+        $this->trailer = $trailer;
     }
 
     /**
@@ -23,11 +28,22 @@ class Body extends Component
      *
      * @return \Illuminate\View\View|string
      */
+
     public function render()
     {
 
         $imgs = LandingPageSlider::all();
         $data = LandingPageContent::first();
-        return view('components.index.body' , ['imgs' => $imgs , 'data' => $data]);
+        try {
+            $videoId = Youtube::parseVidFromURL($data->video_url);
+        }catch (\ErrorException $e)
+        {
+            $videoId = null;
+        }
+
+        $volunteer = LandingPageVolunteer::all();
+
+
+        return view('components.index.body' , ['imgs' => $imgs , 'data' => $data , 'video_id' => $videoId , 'volunteer' => $volunteer]);
     }
 }

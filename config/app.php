@@ -178,6 +178,9 @@ return [
         //---------------------------------------------------
         Alaouy\Youtube\YoutubeServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
+
+
 
 
 
@@ -234,6 +237,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
 
 

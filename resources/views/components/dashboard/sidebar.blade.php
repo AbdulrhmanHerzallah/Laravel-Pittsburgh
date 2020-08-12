@@ -85,15 +85,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                            <a href="{{route('dashboard.volunteer.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Fixed Sidebar</p>
+                                <p>{{__('dashboard_layout.volunteers')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                            <a href="{{route('dashboard.footer_social_links.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Fixed Navbar</p>
+                                <p>{{__('dashboard_layout.footer_social_links')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -114,15 +114,15 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Charts
+                            {{__('dashboard_layout.topics')}}
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">
+                            <a href="{{route('dashboard.trailer.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                                <p>{{__('dashboard_layout.create_topic')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
