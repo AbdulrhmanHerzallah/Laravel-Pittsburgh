@@ -40,14 +40,10 @@
                     </div>
 
                     <div class="form-group" id="iframe_twitter" style="display: none">
-                        <label for="iframe_twitter_l">Embed Iframe just Twitter</label>
+                        <label for="iframe_twitter_l">Embed Iframe</label>
                         <input type="text" class="form-control" id="iframe_twitter_l" name="iframe">
                     </div>
 
-                    <div class="form-group" id="iframe_spotify" style="display: none">
-                        <label for="iframe_s">Embed Iframe just Spotify</label>
-                        <input type="text" class="form-control" id="iframe_s" name="iframe">
-                    </div>
 
                 </div>
 
@@ -74,24 +70,27 @@
         function selectType() {
             let type = document.getElementById('type').value
 
-            if (type == 'y') {
+            if (type == 'y')
+            {
                 document.getElementById('iframe_twitter').style.display = "none";
                 document.getElementById('url_id').style.display = "block";
                 document.getElementById('iframe_spotify').style.display = "none";
                 document.getElementById('img').style.display = "none";
             }
 
-            if (type == 't') {
+            if (type == 't')
+            {
                 document.getElementById('iframe_twitter').style.display = "block";
                 document.getElementById('url_id').style.display = "none";
                 document.getElementById('iframe_spotify').style.display = "none";
                 document.getElementById('img').style.display = "none";
             }
 
-            if (type == 'p') {
-                document.getElementById('iframe_twitter').style.display = "none";
+            if (type == 'p')
+            {
+                document.getElementById('iframe_twitter').style.display = "block";
                 document.getElementById('url_id').style.display = "none";
-                document.getElementById('iframe_spotify').style.display = "block";
+                document.getElementById('iframe_spotify').style.display = "none";
                 document.getElementById('img').style.display = "none";
             }
         }

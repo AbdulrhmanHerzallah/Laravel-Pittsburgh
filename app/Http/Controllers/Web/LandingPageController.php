@@ -11,6 +11,7 @@ class LandingPageController extends Controller
     public function index()
     {
         $trailer = Trailer::where('is_published' , '=' , 1)->first();
-        return view('web.landing-page.index' , ['trailer' => $trailer]);
+
+        return view('web.landing-page.index'  , ['trailer' => $trailer]);
     }
 }

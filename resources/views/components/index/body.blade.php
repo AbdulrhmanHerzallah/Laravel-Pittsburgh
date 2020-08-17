@@ -2,7 +2,7 @@
     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="ratio: 7:3; animation: scale;autoplay: true">
 
         <ul class="uk-slideshow-items">
-            @foreach($imgs as $i)
+            @foreach($imgs  as $i)
             <li>
                 <img src="{{$i->img_url}}"  alt="" uk-cover>
                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
@@ -22,12 +22,13 @@
             <br>
             <p class="text-center font-weight-bold p-3">{{$trailer->title}}</p>
             <div class="row">
+                @if($trailer->url_id == !null || $trailer->iframe == !null)
+
                 <div class="col-lg-6 uk-animation-toggle position-relative" style="height: 300px">
 
                     @if($trailer->type == 'y')
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{$trailer->url_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{$trailer->url_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     @endif
-
 
                     @if($trailer->type == 't')
                      <img src="/images/Twitter%20logo%202012.png"
@@ -41,6 +42,7 @@
                     {!! $trailer->iframe !!}
                     @endif
 
+
                 </div>
                 <div class="col-lg-6 text-justify mt-3">
                     <p>
@@ -48,11 +50,32 @@
                     </p>
                     <div class="row d-flex justify-content-between">
                         <div class="col">
-                            <a href="{{route('topic.index' , ['slug' => $trailer->title_slug])}}">إقرأ المزيد...</a>
+                            @if($trailer->type == 'y' || $trailer->type == 'p')
+                            <a href="{{route('topic.index' , ['slug' => $trailer->slug])}}">إقرأ المزيد...</a>
+                            @else
+                                <a href="{{route('topic.twitter.index' , ['slug' => $trailer->slug])}}">إقرأ المزيد...</a>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
+
+            @else
+                <div class="row">
+                    <div class="col-lg text-justify mt-3">
+                        <p>
+                            {{$trailer->desc}}
+                        </p>
+                        <div class="row d-flex justify-content-between">
+                            <div class="col">
+                                <a href="{{route('topic.index' , ['slug' => $trailer->slug])}}">إقرأ المزيد...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            @endif
+
             <p class="text-justify">
                 <!--            <iframe src="https://open.spotify.com/embed-podcast/episode/0NlT42K1vlR4Ke76LE2TWZ" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>-->
                 <!--            <iframe width="100%" height="450" src="https://www.youtube.com/embed/0AsVK4B15W0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
@@ -142,9 +165,9 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="row">
-                @if($trailer->type == 't')
-                    {!! $trailer->iframe !!}
-                @endif
+{{--                @if($trailer->type == 't')--}}
+{{--                    {!! $trailer->iframe !!}--}}
+{{--                @endif--}}
             </div>
         </div>
     </div>

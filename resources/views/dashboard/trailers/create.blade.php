@@ -27,7 +27,7 @@
 
                     <div class="form-group">
                         <label for="desc">{{__('dashboard_layout.desc')}}</label>
-                        <textarea class="form-control" id="desc" rows="4"></textarea>
+                        <textarea name="desc" class="form-control" id="desc" rows="4"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -37,7 +37,7 @@
                             <option value="y">Youtube</option>
                             <option value="t">Twitter</option>
                             <option value="p">Spotify</option>
-                            <option value="i">Image</option>
+{{--                            <option value="i">Image</option>--}}
                         </select>
                     </div>
 
@@ -47,14 +47,10 @@
                     </div>
 
                     <div class="form-group" id="iframe_twitter" style="display: none">
-                        <label for="iframe_twitter_l">Embed Iframe just Twitter</label>
-                        <input type="text" class="form-control" id="iframe_twitter_l" name="iframe">
+                        <label for="iframe_twitter_l">Embed Iframe</label>
+                        <input name="iframe" type="text" class="form-control" id="iframe_twitter_l">
                     </div>
 
-                    <div class="form-group" id="iframe_spotify" style="display: none">
-                        <label for="iframe_s">Embed Iframe just Spotify</label>
-                        <input type="text" class="form-control" id="iframe_s" name="iframe">
-                    </div>
 
                     <div class="form-group" id="img" style="display: none">
                         <label for="file_i">صورة</label>
@@ -105,19 +101,19 @@
 
             if (type == 'p')
             {
-                document.getElementById('iframe_twitter').style.display = "none";
+                document.getElementById('iframe_twitter').style.display = "block";
                 document.getElementById('url_id').style.display = "none";
-                document.getElementById('iframe_spotify').style.display = "block";
+                document.getElementById('iframe_spotify').style.display = "none";
                 document.getElementById('img').style.display = "none";
             }
 
-            if (type == 'i')
-            {
-                document.getElementById('iframe_twitter').style.display = "none";
-                document.getElementById('url_id').style.display = "none";
-                document.getElementById('iframe_spotify').style.display = "none";
-                document.getElementById('img').style.display = "block";
-            }
+            // if (type == 'i')
+            // {
+            //     document.getElementById('iframe_twitter').style.display = "none";
+            //     document.getElementById('url_id').style.display = "none";
+            //     document.getElementById('iframe_spotify').style.display = "none";
+            //     document.getElementById('img').style.display = "block";
+            // }
 
         }
     </script>

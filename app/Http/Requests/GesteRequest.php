@@ -24,16 +24,15 @@ class GesteRequest extends FormRequest
     public function rules()
     {
         return [
-//            'name' => 'required|unique:bills,bill_number',
-            'desc' => 'between:0,100',
-            'main' => 'required',
-            'img_url' => 'required|max:255|string',
-            'web' => 'required|max:255|string',
-            'youtube' => 'required|numeric',
-            'facebook.*' => 'required|max:255',
-            'instagram.0' => 'required|numeric',
-            'twitter.*' => 'required|numeric',
-            'snapchat.*' => 'min:0|min:',
+            'name.*' => 'required',
+            'desc.*' => 'required|max:350',
+            'file.*' => 'max:2048|image|mimes:jpeg,png,jpg,gif',
+            'web.*' => 'max:255|url',
+            'youtube.*' => 'max:255|url',
+            'facebook.*' => 'max:255|url',
+            'instagram.*' => 'max:255|url',
+            'twitter.*' => 'max:255|url',
+            'snapchat.*' => 'max:255|url',
         ];
     }
 }

@@ -60,20 +60,20 @@
                             <div class="col">
                                 <label for="snapchat_0">Snapchat</label>
                                 <input id="snapchat_0" type="text"
-                                       class="form-control mb-3 @error('snapchat.0') @enderror"
+                                       class="form-control mb-3 @error('snapchat.0') is-invalid @enderror"
                                        placeholder="" name="snapchat[]" value="{{old('snapchat.0')}}">
                             </div>
 
                             <div class="col">
                                 <label for="desc_0">اضافة وصف قصير للضيف</label>
-                                <textarea name="desc[]" class="form-control @error('desc_0') @enderror" rows="2"
+                                <textarea name="desc[]" class="form-control @error('desc.0') is-invalid @enderror" rows="2"
                                           id="desc_0">{{old('desc.0')}}</textarea>
                             </div>
 
                             <div class="col">
                                 <label for="web_site_0">Web Site</label>
                                 <input id="web_site_0" type="text" name="web[]"
-                                       class="form-control mb-3 @error('web.0') @enderror"
+                                       class="form-control mb-3 @error('web.0') is-invalid @enderror"
                                        placeholder="" value="{{old('web.0')}}">
                             </div>
                         </div>
@@ -91,8 +91,8 @@
                             </div>
 
                             <div class="col">
-                                <label for="file_0" class="form-check-label">اختار صورة شخصية للضيف</label>
-                                <input class="mt-3" type="file" id="file_0">
+                                <label for="file_0" class="form-check-label @error('file.0') text-danger @enderror">اختار صورة شخصية للضيف</label>
+                                <input class="mt-3" type="file" name="file[]" value="{{old('file.0')}}" id="file_0">
                             </div>
                         </div>
                     </div>
@@ -113,20 +113,20 @@
                                     <label for="twitter_{{$i}}">Twitter</label>
                                     <input id="twitter_{{$i}}" type="text" name="twitter[]"
                                            class="form-control mb-3 @error('twitter.'.$i) is-invalid @enderror"
-                                           placeholder="" value="{{old('twitter.').$i}}">
+                                           placeholder="" value="{{old('twitter.'.$i)}}">
                                 </div>
                                 <div class="col">
                                     <label for="facebook_{{$i}}">Facebook</label>
                                     <input id="facebook_{{$i}}" type="text" name="facebook[]"
                                            class="form-control mb-3 @error('facebook.'.$i) is-invalid @enderror"
-                                           placeholder="" value="{{old('facebook.').$i}}">
+                                           placeholder="" value="{{old('facebook.'.$i)}}">
                                 </div>
 
                                 <div class="col">
                                     <label for="instagram_{{$i}}">Instagram</label>
                                     <input id="instagram_{{$i}}" type="text" name="instagram[]"
                                            class="form-control mb-3 @error('instagram.'.$i) is-invalid @enderror"
-                                           placeholder="" value="{{old('instagram.').$i}}">
+                                           placeholder="" value="{{old('instagram.'.$i)}}">
                                 </div>
 
                             </div>
@@ -138,21 +138,21 @@
                                 <div class="col">
                                     <label for="snapchat_{{$i}}">Snapchat</label>
                                     <input id="snapchat_{{$i}}" type="text"
-                                           class="form-control mb-3 @error('snapchat.'.$i) @enderror"
-                                           placeholder="" name="snapchat[]" value="{{old('snapchat.').$i}}">
+                                           class="form-control mb-3 @error('snapchat.'.$i) is-invalid @enderror"
+                                           placeholder="" name="snapchat[]" value="{{old('snapchat.'.$i)}}">
                                 </div>
 
                                 <div class="col">
                                     <label for="desc_{{$i}}">اضافة وصف قصير للضيف</label>
-                                    <textarea name="desc[]" class="form-control @error('snapchat.'.$i) @enderror" rows="2"
-                                              id="desc_{{$i}}">{{old('desc.').$i}}</textarea>
+                                    <textarea name="desc[]" class="form-control @error('desc.'.$i) is-invalid @enderror" rows="2"
+                                              id="desc_{{$i}}">{{old('desc.'.$i)}}</textarea>
                                 </div>
 
                                 <div class="col">
-                                    <label for="web_site_0">Web Site</label>
-                                    <input id="web_site_0" type="text" name="web[]"
-                                           class="form-control mb-3 @error('web.'.$i) @enderror"
-                                           placeholder="" value="{{old('web.').$i}}">
+                                    <label for="web_site_{{$i}}">Web Site</label>
+                                    <input id="web_site_{{$i}}" type="text" name="web[]"
+                                           class="form-control mb-3 @error('web.'.$i) is-invalid @enderror"
+                                           placeholder="" value="{{old('web.'.$i)}}">
                                 </div>
                             </div>
                         </div>
@@ -169,10 +169,9 @@
                                 </div>
 
                                 <div class="col">
-                                    <label for="file_{{$i}}" class="form-check-label">اختار صورة شخصية للضيف</label>
-                                    <input class="mt-3" type="file" id="file_{{$i}}">
+                                    <label for="file_{{$i}}" class="form-check-label @error('file.'.$i) text-danger @enderror">اختار صورة شخصية للضيف</label>
+                                    <input class="mt-3 @error('file.'.$i) is-invalid @enderror" value="{{old('file'.$i)}}" type="file" name="file[]" id="file_{{$i}}">
                                 </div>
-
 
                                 <div class="col">
                                     <div class="col">
@@ -180,7 +179,6 @@
                                         </button>
                                     </div>
                                 </div>
-
 
                             </div>
                         </div>
@@ -220,8 +218,8 @@
 
 @section('script')
     <script>
+        let count = 0 ? count = 0 : $('#index').val();
         $(document).ready(function () {
-            let count = 0 ? count = 0 : $('#index').val();
             $('#add').click(function () {
                 count++
                 $('#index').val(count)
@@ -295,7 +293,7 @@
 
                             <div class="col">
                                 <label for="file_${count}" class="form-check-label">اختار صورة شخصية للضيف</label>
-                                <input class="mt-3" type="file" id="file_${count}">
+                                <input class="mt-3" name="file[]" type="file" id="file_${count}">
                             </div>
 
                             <div class="col">

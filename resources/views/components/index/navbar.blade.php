@@ -8,20 +8,20 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active font-weight-bold">
-                <a class="nav-link text-dark" style="font-size: 20px" href="#"><i class="fas fa-home"></i><span class="sr-only">(current)</span></a>
+                <a class="nav-link text-dark" style="font-size: 20px" href="{{url('/')}}"><i class="fas fa-home"></i><span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item font-weight-bold">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark" href="{{route('videos.index')}}">
                     يوتيوب
                 </a>
             </li>
             <li class="nav-item font-weight-bold">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark" href="{{route('twitter.index')}}">
                     تويتر</a>
             </li>
 
             <li class="nav-item font-weight-bold">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark" href="{{route('spotify.index')}}">
                     البرودكاست
                 </a>
             </li>

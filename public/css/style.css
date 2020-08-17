@@ -44,15 +44,15 @@ html, body{
 	position:relative;
 	padding-left:2em;
 }
-.pk_testimonial_grid p:before{
-	content:"\f10d";
-	font-size:2em;
-	color:#ec9114;
-	font-family:FontAwesome;
-	position:absolute;
-	top:0%;
-	left:0%;
-}
+/*.pk_testimonial_grid p:before{*/
+/*	content:"\f10d";*/
+/*	font-size:2em;*/
+/*	color:#ec9114;*/
+/*	font-family:FontAwesome;*/
+/*	position:absolute;*/
+/*	top:0%;*/
+/*	left:0%;*/
+/*}*/
 .agileits_testimonial_grid h4{
 	font-size:1.1em;
 	color:#212121;

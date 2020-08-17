@@ -31,7 +31,7 @@ class IframeController extends Controller
          }
         }
 
-        Iframe::create(array_merge($request->except(['url_id']) , ['url_id' => $videoId]));
+        Iframe::create(array_merge($request->except(['url_id']) , ['url_id' => $videoId ?? null]));
         return redirect()->route('dashboard.gestes.create' , ['trailer_id' => $request->trailer_id]);
     }
 

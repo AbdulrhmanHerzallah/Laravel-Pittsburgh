@@ -4,6 +4,7 @@ namespace App\View\Components\Index;
 
 use App\Models\FooterSocialLinks;
 use Illuminate\View\Component;
+use App\Models\Trailer;
 
 class Footer extends Component
 {
@@ -28,4 +29,11 @@ class Footer extends Component
     {
         return view('components.index.footer');
     }
+
+    public function takeFiveTopic()
+    {
+      return Trailer::all()->take(4);
+    }
+
+
 }

@@ -9,4 +9,13 @@ class GesteModel extends Model
 
     protected $table = 'gestes';
     protected $guarded = [];
+
+
+    public function trailer()
+    {
+        return $this->belongsTo(Trailer::class);
+    }
+
+
+
 }

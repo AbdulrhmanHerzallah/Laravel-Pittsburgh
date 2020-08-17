@@ -1,5 +1,19 @@
 @extends('dashboard.index.index')
 
+@section('style')
+
+    <style>
+        .note-btn[aria-label="Picture"] , .note-btn[data-original-title="Font Family"] {
+            display: none !important;
+        }
+
+        /*.note-editor .btn-toolbar button[data-event="showVideoDialog"] {*/
+        /*    display: none !important;*/
+        /*}*/
+    </style>
+
+
+@endsection
 
 
 
@@ -22,7 +36,10 @@
 
                     <div class="form-group">
                         <label for="desc">{{__('dashboard_layout.desc')}}</label>
-                        <textarea name="desc" class="form-control" id="desc" rows="4"></textarea>
+{{--                        <textarea name="desc" class="form-control" id="desc" rows="4"></textarea>--}}
+                        <textarea  id="desc" name="desc" class="textarea" placeholder="Place some text here"
+                                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;z-index: 400"></textarea>
+
                     </div>
 
                    <input type="hidden" value="{{$trailer_id}}" name="trailer_id">
@@ -82,33 +99,13 @@
 
 @section('script')
     <script>
-        function selectType()
-        {
-            let type = document.getElementById('type').value
-
-            if (type == 'y')
-            {
-                document.getElementById('iframe_twitter').style.display = "none";
-                document.getElementById('url_id').style.display = "block";
-                document.getElementById('iframe_spotify').style.display = "none";
-                document.getElementById('img').style.display = "none";
-            }
-
-            if (type == 't')
-            {
-                document.getElementById('iframe_twitter').style.display = "block";
-                document.getElementById('url_id').style.display = "none";
-                document.getElementById('iframe_spotify').style.display = "none";
-                document.getElementById('img').style.display = "none";
-            }
-
-            if (type == 'p')
-            {
-                document.getElementById('iframe_twitter').style.display = "none";
-                document.getElementById('url_id').style.display = "none";
-                document.getElementById('iframe_spotify').style.display = "block";
-                document.getElementById('img').style.display = "none";
-            }
-        }
+        $(function () {
+            // Summernote
+            $('.textarea').summernote({
+                height: 300,
+            })
+        })
     </script>
+
+
 @endsection

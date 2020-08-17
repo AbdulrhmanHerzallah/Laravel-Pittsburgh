@@ -3,28 +3,56 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Models\Topic;
 use App\Models\Trailer;
 use Illuminate\Http\Request;
-use App\Helpers\ArabicSlug;
 
 
 class TopicController extends Controller
 {
     public function index($slug)
     {
-        $trailer = Trailer::where('title_slug' , '=' , $slug)->first();
+
+        $trailer = Trailer::where('slug' , '=' , $slug)->first();
+
         $topic   = $trailer->topic;
+        $iframes = $trailer->iframes;
+        $gestesManin  = $trailer->gestes()->where('main' , '=' , 1)->get();
+        $gestesUnMane  = $trailer->gestes()->where('main' , '=' , 0)->get();
+        $links = $trailer->links;
 
+        if ($topic == null) return view('errors.empty_topic');
 
-        if ($topic == null)
-        {
-            return view('errors.empty_topic');
-        }
-
-
-
-
-        return view('web.topics.index' , ['trailer' => $trailer , 'topic' => $topic]);
+        return view('web.topics.index'
+        , ['topic' => $topic , 'iframes' => $iframes , 'gestesManin' => $gestesManin , 'gestesUnMane' =>  $gestesUnMane,  'links' => $links , 'trailer' => $trailer]
+        );
     }
+
+
+
+    public function twitter($slug)
+    {
+
+        $trailer = Trailer::where('slug' , '=' , $slug)->first();
+
+        $topic   = $trailer->topic;
+        $iframes = $trailer->iframes;
+        $gestesManin  = $trailer->gestes()->where('main' , '=' , 1)->get();
+        $gestesUnMane  = $trailer->gestes()->where('main' , '=' , 0)->get();
+        $links = $trailer->links;
+
+        if ($topic == null) return view('errors.empty_topic');
+
+        return view('web.landing-page.twitter'
+            , ['topic' => $topic , 'iframes' => $iframes , 'gestesManin' => $gestesManin , 'gestesUnMane' =>  $gestesUnMane,  'links' => $links , 'trailer' => $trailer]
+        );
+    }
+
+
+
+
+
+
+
+
+
 }

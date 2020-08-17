@@ -22,7 +22,7 @@ class TrailerController extends Controller
     public function store(Request $request)
     {
 
-
+//dd($request->all());
         Trailer::query()->update(['is_published' => 0]);
 
         $arabic_slug = ArabicSlug::SetTitle($request->title);
@@ -32,7 +32,7 @@ class TrailerController extends Controller
             $videoId = Youtube::parseVidFromURL($request->url_id);
         }
 
-        $trailer = Trailer::create(array_merge($request->except(['url_id' , 'title_slug']) , ['is_published' => 1 , 'url_id' => $videoId , 'slug' => $arabic_slug]));
+        $trailer = Trailer::create(array_merge($request->except(['url_id' , 'title_slug']) , ['is_published' => 1 , 'url_id' => $videoId ?? null , 'slug' => $arabic_slug]));
 
         return redirect()->route('dashboard.topic.create' , ['trailer_id' => $trailer->id]);
 

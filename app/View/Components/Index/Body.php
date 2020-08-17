@@ -23,6 +23,8 @@ class Body extends Component
         $this->trailer = $trailer;
     }
 
+//
+
     /**
      * Get the view / contents that represent the component.
      *
@@ -41,9 +43,12 @@ class Body extends Component
             $videoId = null;
         }
 
-        $volunteer = LandingPageVolunteer::all();
-
-
-        return view('components.index.body' , ['imgs' => $imgs , 'data' => $data , 'video_id' => $videoId , 'volunteer' => $volunteer]);
+        return view('components.index.body' , ['imgs' => $imgs , 'data' => $data , 'video_id' => $videoId]);
     }
+
+
+    public function volunteer(){
+        return LandingPageVolunteer::all();
+    }
+
 }

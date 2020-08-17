@@ -9,7 +9,7 @@
     <style>
         body{font-family: 'Mada', sans-serif;background-color: #dfe6e9}
         .main {
-            font-size: 20px;text-align: justify;line-height: 2.5;padding: 0 160px 0 160px
+            font-size: 18px;text-align: justify;line-height: 2.5;padding: 0 160px 0 160px;margin-top: 15px;
         }
         .references{
             padding: 0 160px 75px 160px;
@@ -45,137 +45,268 @@
             <iframe width="100%" height="350" src="https://www.youtube.com/embed/{{$trailer->url_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
-    @endif
+        <h4 class="text-center font-weight-bold">{{$trailer->title}}</h4>
 
-    <!--    <div class="container mt-4">-->
-    <!--        <div class="row mt-2">-->
-    <!--            <div class="col-lg-12 text-center font-weight-bold ">-->
-    <!--                <p class="text-justify">-->
-    <!--                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consectetur cupiditate enim hic inventore nam nisi! Aspernatur fuga laudantium natus nemo pariatur quibusdam quod. Ab culpa, dignissimos excepturi fugit libero maiores natus odio perferendis porro praesentium quibusdam, recusandae temporibus tenetur vero voluptatem! Alias doloribus eius perferendis perspiciatis placeat reiciendis sint! At atque aut, autem consectetur, corporis delectus dolores dolorum esse excepturi fuga in ipsum libero maiores nam natus necessitatibus nostrum omnis perspiciatis porro quidem quis ratione reprehenderit sunt temporibus tenetur veritatis voluptate voluptatibus. Animi eaque labore, pariatur repellat sapiente velit?-->
-    <!--                </p>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+{{--        <div class="container mt-4">--}}
+{{--            <div class="row mt-2">--}}
+{{--                <div class="col-lg-12 text-center">--}}
+{{--                    <p class="text-justify">--}}
+{{--                        {{$trailer->desc}}--}}
+{{--                    </p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-    <!--    <div class="row d-flex justify-content-center mt-2">-->
-    <!--        <div class="col-lg-5">-->
-    <!--            <div class="d-flex justify-content-center" style="height: 2px;background-color: #d5ca99"></div>-->
+@endif
 
-    <!--        </div>-->
-    <!--    </div>-->
+
+
+        <div class="row d-flex justify-content-center mt-2">
+            <div class="col-lg-5">
+                <div class="d-flex justify-content-center" style="height: 2px;background-color: #d5ca99"></div>
+            </div>
+        </div>
     <div class="container-fluid">
 
 
         <div class="row mt-3" style="border: #d5ca99 solid 1px;">
             <div class="col-lg-12 bg-white">
-                <p class="text-center font-weight-bold mt-5 mb-3" style="font-size: 20px">{{$trailer->title}}</p>
+{{--                <p class="text-center font-weight-bold mt-5 mb-3" style="font-size: 20px">{{$trailer->title}}</p>--}}
 
-                <p class="main text-justify mt-4" style="font-size: 15px">
-                    {{$trailer->desc}}
-                </p>
-                @if($topic->type == 'y')
-                <iframe width="100%" height="340" src="https://www.youtube.com/embed/{{$topic->url_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{--                <p class="main text-justify mt-4" style="font-size: 15px">--}}
+{{--                    {{$trailer->desc}}--}}
+{{--                </p>--}}
+
+                <div class="mt-5">
+                @foreach($iframes as $i)
+                    @if($i->type == 'y')
+                <iframe width="100%" height="340" src="https://www.youtube.com/embed/{{$i->url_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    @endif
+                @endforeach
+
+
+                <div class="row justify-content-center">
+                @foreach($iframes as $i)
+                    @if($i->type == 't')
+                        <div class="col-lg-6">
+                            {!! $i->iframe !!}
+                        </div>
+                     @endif
+                @endforeach
+                </div>
+
+
+                <div class="row justify-content-center">
+                    @foreach($iframes as $i)
+                        @if($i->type == 'p')
+                            <div class="col-lg-6">
+                                {!! $i->iframe !!}
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+                </div>
+
+                <div class="main">
+                    {!! $topic->desc !!}
+                </div>
+
+                @if($gestesManin->count() == 1)
+                    <p style="font-size: 20px;font-family: 'Changa', sans-serif;" class="main text-center mt-5">المتحدث</p>
+                @elseif($gestesManin->count() > 1)
+                    <p style="font-size: 20px;font-family: 'Changa', sans-serif;" class="main text-center mt-5">المتحدثون</p>
                 @endif
-                <p class="main">
-                    {{$topic->desc}}
-                </p>
-
-                <p style="font-size: 20px;font-family: 'Changa', sans-serif;" class="main text-center mt-5">الضيف</p>
 
                 <div class="testimonials" style="padding: 5px">
                     <div class="container">
-                        <div class="phpkida_testimonials_grids">
-                            <section class="center slider">
-                                <div class="agileits_testimonial_grid">
-                                    <div class="pk_testimonial_grid ">
-                                        <p class="">Awesome services, i am happy to here becouse of your services. in future i will contine.</p>
-                                        <h4>Mukesh Jakhar</h4>
-                                        <h5>Developer</h5>
-                                        <div class="pk_testimonial_grid_pos">
-                                            <img src="images/1.jpg" alt=" " class="img-responsive" />
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </section>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-
-                <p style="font-size: 20px;font-family: 'Changa', sans-serif;" class="main text-center mt-5">ضيوف الشرف</p>
-                <!-- testimonials -->
-                <div class="testimonials mb-5" style="padding: 5px">
-                    <div class="container">
+                    @foreach($gestesManin as $i)
                         <div class="phpkida_testimonials_grids">
                             <section class="center slider">
                                 <div class="agileits_testimonial_grid">
                                     <div class="pk_testimonial_grid">
-                                        <p>Awesome services, i am happy to here becouse of your services. in future i will contine.</p>
-                                        <h4>Mukesh Jakhar</h4>
-                                        <h5>Developer</h5>
-                                        <div class="pk_testimonial_grid_pos">
-                                            <img src="images/1.jpg" alt=" " class="img-responsive" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agileits_testimonial_grid">
-                                    <div class="pk_testimonial_grid">
-                                        <p>Awesome services, i am happy to here becouse of your services. in future i will contine.</p>
+                                        <p class="">{{$i->desc}}</p>
                                         <div class="row text-center d-flex justify-content-center">
-                                            <div class="col-2" style="font-size: 30px"><i class="fab fa-facebook"></i></div>
-                                            <div class="col-2">d</div>
-                                            <div class="col-2">d</div>
-                                            <div class="col-2">d</div>
+                                            @if($i->twitter == !null)
+                                                <div class="col-2" style="font-size: 30px">
+                                                    <a target="_blank" href="{{$i->twitter}}" class="text-info">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </a>
+                                                </div>
+                                            @endif
+
+                                                @if($i->facebook == !null)
+                                                    <div class="col-2" style="font-size: 30px">
+                                                        <a target="_blank" href="{{$i->facebook}}" class="text-primary">
+                                                            <i class="fab fa-facebook"></i>
+                                                        </a>
+                                                    </div>
+                                                @endif
+
+                                                @if($i->youtube == !null)
+                                                    <div class="col-2" style="font-size: 30px">
+                                                        <a target="_blank" href="{{$i->youtube}}" class="text-danger">
+                                                            <i class="fab fa-youtube"></i>
+                                                        </a>
+                                                    </div>
+                                                @endif
+
+                                                @if($i->instagram == !null)
+                                                    <div class="col-2" style="font-size: 30px">
+                                                        <a target="_blank" href="{{$i->instagram}}" style="color: brown;">
+                                                            <i class="fab fa-instagram"></i>
+                                                        </a>
+                                                    </div>
+                                                @endif
+
+                                                @if($i->snapchat == !null)
+                                                    <div class="col-2" style="font-size: 30px">
+                                                        <a target="_blank" href="{{$i->snapchat}}" class="text-warning">
+                                                            <i class="fab fa-snapchat"></i>
+                                                        </a>
+                                                    </div>
+                                                @endif
                                         </div>
-                                        <h4>Shivani Gupta</h4>
-                                        <h5>Designer</h5>
+                                        <h4>{{$i->name}}</h4>
                                         <div class="pk_testimonial_grid_pos">
-                                            <img src="images/2.jpg" alt=" " class="img-responsive" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agileits_testimonial_grid">
-                                    <div class="pk_testimonial_grid">
-                                        <p>IAwesome services, i am happy to here becouse of your services. in future i will contine.</p>
-                                        <h4>Michael DoeMukesh Jakhar</h4>
-                                        <h5>Developer</h5>
-                                        <div class="pk_testimonial_grid_pos">
-                                            <img src="images/1.jpg" alt=" " class="img-responsive" />
+                                            @if($i->img_url != null)
+                                            <img src="{{$i->img_url}}" width="100" height="100" alt="{{$i->name}}" style="cursor: pointer" data-toggle="modal" data-target="#img_po" data-path="{{$i->img_url}}" data-name="{{$i->name}}" class="img-responsive" />
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                             </section>
                         </div>
+                        @endforeach
                     </div>
                 </div>
-                <!-- //testimonials -->
 
 
+                @if($gestesUnMane->count() == 1)
+                    <hr>
+                <p style="font-size: 20px;font-family: 'Changa', sans-serif;" class="main text-center mt-5">الضيف</p>
+                @elseif($gestesUnMane->count() > 1)
+                    <p style="font-size: 20px;font-family: 'Changa', sans-serif;" class="main text-center mt-5">الضيوف</p>
+                @endif
+
+                <div class="testimonials" style="padding: 5px">
+                    <div class="container mb-5">
+                        @foreach($gestesUnMane as $i)
+                                <div class="phpkida_testimonials_grids">
+                                    <section class="center slider">
+                                        <div class="agileits_testimonial_grid">
+                                            <div class="pk_testimonial_grid ">
+                                                <p class="">{{$i->desc}}</p>
+                                                <div class="row text-center d-flex justify-content-center">
+                                                    @if($i->twitter == !null)
+                                                        <div class="col-2" style="font-size: 30px">
+                                                            <a target="_blank" href="{{$i->twitter}}" class="text-info">
+                                                                <i class="fab fa-twitter"></i>
+                                                            </a>
+                                                        </div>
+                                                    @endif
+
+                                                    @if($i->facebook == !null)
+                                                        <div class="col-2" style="font-size: 30px">
+                                                            <a target="_blank" href="{{$i->facebook}}" class="text-primary">
+                                                                <i class="fab fa-facebook"></i>
+                                                            </a>
+                                                        </div>
+                                                    @endif
+
+                                                    @if($i->youtube == !null)
+                                                        <div class="col-2" style="font-size: 30px">
+                                                            <a target="_blank" href="{{$i->youtube}}" class="text-danger">
+                                                                <i class="fab fa-youtube"></i>
+                                                            </a>
+                                                        </div>
+                                                    @endif
+
+                                                    @if($i->instagram == !null)
+                                                        <div class="col-2" style="font-size: 30px">
+                                                            <a target="_blank" href="{{$i->instagram}}" style="color: brown;">
+                                                                <i class="fab fa-instagram"></i>
+                                                            </a>
+                                                        </div>
+                                                    @endif
+
+                                                    @if($i->snapchat == !null)
+                                                        <div class="col-2" style="font-size: 30px">
+                                                            <a target="_blank" href="{{$i->snapchat}}" class="text-warning">
+                                                                <i class="fab fa-snapchat"></i>
+                                                            </a>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <h4>{{$i->name}}</h4>
+                                                <div class="pk_testimonial_grid_pos">
+                                                    @if($i->img_url != null)
+                                                    <img src="{{$i->img_url}}" width="100" height="100" alt="{{$i->name}}" style="cursor: pointer" data-toggle="modal" data-target="#img_po" data-path="{{$i->img_url}}" data-name="{{$i->name}}" class="img-responsive" />
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                        @endforeach
+                    </div>
+                </div>
 
 
-                <!--<div class="container references">-->
-                <!--    <div style="font-size: 20px;text-align: justify;line-height: 3;">-->
-                <!--        الحسابات:-->
-                <!--        <ul>-->
-                <!--            <li style="list-style: none"><span style="color: #535318">@Rebdis — حساب عبدالله الربدي</span> على تويتر</li>-->
-                <!--            <li style="list-style: none"><span style="color: #535318">@Rebdis — حساب عبدالله الربدي</span> على تويتر</li>-->
-                <!--            <li style="list-style: none"><span style="color: #535318">@Rebdis — حساب عبدالله الربدي</span> على تويتر</li>-->
-                <!--            <li style="list-style: none"><span style="color: #535318">@Rebdis — حساب عبدالله الربدي</span> على تويتر</li>-->
+                @if($links->count() > 0)
+                 <hr>
+                <div class="container references">
+                   <div style="font-size: 20px;text-align: justify;line-height: 3;">
+                        الروابط:
+                       <ul>
+                           @foreach($links as $link)
+                           <li style="list-style: none"><span style="color: #535318"><a target="_blank" title="{{$link->title}}" href="{{$link->link}}">{{$link->title}}</a></span></li>
+                           @endforeach
+                        </ul>
+                    </div>
+                </div>
+                @endif
 
-
-                <!--        </ul>-->
-                <!--    </div>-->
-                <!--</div>-->
             </div>
         </div>
         <br>
     </div>
 
 </div>
+<div class="modal fade" id="img_po" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="name">New message</h5>
+{{--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                    <span aria-hidden="true">&times;</span>--}}
+{{--                </button>--}}
+            </div>
+            <div class="modal-body">
+                <img id="img" height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <x-index.footer/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
+
+<script>
+    $('#img_po').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var path = button.data('path') // Extract info from data-* attributes
+        var name = button.data('name') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('#img').attr('src' , path)
+        modal.find('#name').text(name)
+    })
+
+</script>
 </body>
 </html>

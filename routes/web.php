@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Trailer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => '/' , 'namespace' => 'Web'] , function (){
     Route::get('/' , ['as' => 'landingPage.index'  , 'uses' => 'LandingPageController@index']);
+    Route::get('/video-topics'  , ['as' => 'videos.index' , 'uses' => 'YoutubeController@index']);
+    Route::get('/podcasts'  , ['as' => 'spotify.index' , 'uses' => 'SpotifyController@index']);
+    Route::get('/twitter'  , ['as' => 'twitter.index' , 'uses' => 'TwitterController@index']);
+
 
     Route::group(['prefix' => '/topic' , 'as' => 'topic.'] , function (){
         Route::get('/{slug}' , ['as' => 'index'  , 'uses' => 'TopicController@index']);
+        Route::get('/twitter/{slug}' , ['as' => 'twitter.index'  , 'uses' => 'TopicController@twitter']);
 
     });
 
@@ -84,5 +90,17 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
 
     });
 
+    Route::group(['prefix' => '/trailer-links'  , 'as' => 'trailerLinks.'] , function (){
+        Route::get('/create/{trailer_id}' , ['as' => 'create'  , 'uses' => 'TrailerLinkController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'TrailerLinkController@store']);
+
+    });
 
 });
+
+
+//Route::get('/test' , function (){
+//    $trailer = Trailer::limit(5)->get();
+//   return $topic   = $trailer->find(1)->topic;
+//
+//});
