@@ -60,6 +60,27 @@
 @endif
 
 
+        @if($trailer->type == 't')
+            <div class="row d-flex justify-content-center mt-4 ">
+                <div class="col-lg-7 text-center">
+                {!! $trailer->iframe !!}
+                </div>
+            </div>
+            <h4 class="text-center font-weight-bold">{{$trailer->title}}</h4>
+
+            {{--        <div class="container mt-4">--}}
+            {{--            <div class="row mt-2">--}}
+            {{--                <div class="col-lg-12 text-center">--}}
+            {{--                    <p class="text-justify">--}}
+            {{--                        {{$trailer->desc}}--}}
+            {{--                    </p>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
+            {{--        </div>--}}
+
+        @endif
+
+
 
         <div class="row d-flex justify-content-center mt-2">
             <div class="col-lg-5">

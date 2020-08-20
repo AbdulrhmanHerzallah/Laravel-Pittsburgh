@@ -50,11 +50,7 @@
                     </p>
                     <div class="row d-flex justify-content-between">
                         <div class="col">
-                            @if($trailer->type == 'y' || $trailer->type == 'p')
                             <a href="{{route('topic.index' , ['slug' => $trailer->slug])}}">إقرأ المزيد...</a>
-                            @else
-                                <a href="{{route('topic.twitter.index' , ['slug' => $trailer->slug])}}">إقرأ المزيد...</a>
-                            @endif
                         </div>
                     </div>
                 </div>
@@ -163,11 +159,11 @@
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content" style="height: 0">
             <div class="row">
-{{--                @if($trailer->type == 't')--}}
-{{--                    {!! $trailer->iframe !!}--}}
-{{--                @endif--}}
+                @if($trailer->type == 't')
+                    {!! $trailer->iframe !!}
+                @endif
             </div>
         </div>
     </div>

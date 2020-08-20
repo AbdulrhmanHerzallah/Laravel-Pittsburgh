@@ -29,30 +29,6 @@ class TopicController extends Controller
 
 
 
-    public function twitter($slug)
-    {
-
-        $trailer = Trailer::where('slug' , '=' , $slug)->first();
-
-        $topic   = $trailer->topic;
-        $iframes = $trailer->iframes;
-        $gestesManin  = $trailer->gestes()->where('main' , '=' , 1)->get();
-        $gestesUnMane  = $trailer->gestes()->where('main' , '=' , 0)->get();
-        $links = $trailer->links;
-
-        if ($topic == null) return view('errors.empty_topic');
-
-        return view('web.landing-page.twitter'
-            , ['topic' => $topic , 'iframes' => $iframes , 'gestesManin' => $gestesManin , 'gestesUnMane' =>  $gestesUnMane,  'links' => $links , 'trailer' => $trailer]
-        );
-    }
-
-
-
-
-
-
-
 
 
 }

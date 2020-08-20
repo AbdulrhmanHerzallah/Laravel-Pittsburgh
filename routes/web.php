@@ -29,7 +29,6 @@ Route::group(['prefix' => '/' , 'namespace' => 'Web'] , function (){
 
     Route::group(['prefix' => '/topic' , 'as' => 'topic.'] , function (){
         Route::get('/{slug}' , ['as' => 'index'  , 'uses' => 'TopicController@index']);
-        Route::get('/twitter/{slug}' , ['as' => 'twitter.index'  , 'uses' => 'TopicController@twitter']);
 
     });
 

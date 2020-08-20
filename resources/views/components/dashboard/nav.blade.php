@@ -5,33 +5,32 @@
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="/" class="nav-link">الرئسية</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-        </li>
+{{--        <li class="nav-item d-none d-sm-inline-block">--}}
+{{--            <a href="#" class="nav-link">Contact</a>--}}
+{{--        </li>--}}
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-    </form>
+{{--    <form class="form-inline ml-3">--}}
+{{--        <div class="input-group input-group-sm">--}}
+{{--            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">--}}
+{{--            <div class="input-group-append">--}}
+{{--                <button class="btn btn-navbar" type="submit">--}}
+{{--                    <i class="fas fa-search"></i>--}}
+{{--                </button>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </form>--}}
 
     <!-- Right navbar links -->
     <ul class="navbar-nav mr-auto-navbav">
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-comments"></i>
-                <span class="badge badge-danger navbar-badge">3</span>
-            </a>
+{{--            <a class="nav-link" data-toggle="dropdown" href="#">--}}
+{{--                <i class="far fas fa-door-open"></i>--}}
+{{--            </a>--}}
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <a href="#" class="dropdown-item">
                     <!-- Message Start -->
@@ -98,22 +97,23 @@
                     <span class="float-right text-muted text-sm">3 mins</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> 8 friend requests
-                    <span class="float-right text-muted text-sm">12 hours</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> 3 new reports
-                    <span class="float-right text-muted text-sm">2 days</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+{{--                <a href="#" class="dropdown-item">--}}
+{{--                    <i class="fas fa-users mr-2"></i> 8 friend requests--}}
+{{--                    <span class="float-right text-muted text-sm">12 hours</span>--}}
+{{--                </a>--}}
+{{--                <div class="dropdown-divider"></div>--}}
+{{--                <a href="#" class="dropdown-item">--}}
+{{--                    <i class="fas fa-file mr-2"></i> 3 new reports--}}
+{{--                    <span class="float-right text-muted text-sm">2 days</span>--}}
+{{--                </a>--}}
+{{--                <div class="dropdown-divider"></div>--}}
+{{--                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>--}}
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-                <i class="fas fa-th-large"></i>
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" title="logout">
+                <i class="fas fa-door-open"></i>
+{{--                <i class="fas fa-th-large"></i>--}}
             </a>
         </li>
     </ul>
