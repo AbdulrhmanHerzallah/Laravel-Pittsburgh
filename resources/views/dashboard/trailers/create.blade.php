@@ -5,10 +5,9 @@
 
 @section('content')
 
-    <div class="container">
-
-
-        <div class="card card-dark mt-5">
+<div class="container">
+<br><br>
+        <div class="card card-dark">
             <div class="card-header">
                 <h6 class="">{{__('dashboard_layout.create_topic')}} (trailer)</h6>
             </div>
@@ -61,7 +60,7 @@
 
                 <div class="container mb-3">
                     <div class="progress">
-                        <div class="progress-bar bg-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
 

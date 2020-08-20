@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Trailer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -40,12 +39,14 @@ Route::group(['prefix' => '/' , 'namespace' => 'Web'] , function (){
 
 
 Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashboard.'] , function (){
+    Route::get('/' , ['as' => 'dashboard.index' , 'uses' => 'IndexController@index']);
 
     Route::group(['prefix' => '/slider'  , 'as' => 'slider.'] , function (){
         Route::get('/' , ['as' => 'index'  , 'uses' => 'IndexController@index']);
         Route::get('/create' , ['as' => 'create' , 'uses' => 'SliderController@create']);
         Route::post('/store' , ['as' => 'store' , 'uses' => 'SliderController@store']);
-        Route::get('/delete/{id}' , ['as' => 'delete' , 'uses' => 'SliderController@delete']);
+        Route::post('/delete' , ['as' => 'delete' , 'uses' => 'SliderController@delete']);
+        Route::post('/update' , ['as' => 'update' , 'uses' => 'SliderController@update']);
     });
 
     Route::group(['prefix' => '/content-page'  , 'as' => 'content_page.'] , function (){
@@ -55,7 +56,9 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
 
     Route::group(['prefix' => '/volunteer'  , 'as' => 'volunteer.'] , function (){
         Route::get('/create' , ['as' => 'create'  , 'uses' => 'VolunteerController@create']);
-        Route::post('/store' , ['as' => 'store'  , 'uses' => 'VolunteerController@store']);
+        Route::post('/store' , ['as' => 'store'   , 'uses' => 'VolunteerController@store']);
+        Route::post('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'VolunteerController@delete']);
+        Route::post('/update/{id}' , ['as' => 'update'  , 'uses' => 'VolunteerController@update']);
     });
 
        Route::group(['prefix' => '/footer-social-links'  , 'as' => 'footer_social_links.'] , function (){
@@ -96,10 +99,3 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
     });
 
 });
-
-
-//Route::get('/test' , function (){
-//    $trailer = Trailer::limit(5)->get();
-//   return $topic   = $trailer->find(1)->topic;
-//
-//});

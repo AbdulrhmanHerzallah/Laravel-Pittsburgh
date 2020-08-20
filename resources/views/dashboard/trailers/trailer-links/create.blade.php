@@ -50,15 +50,20 @@
                     @endfor
                 </div>
 
-
-
+                <div class="container mt-4 mb-4">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-dark">إنهاء</button>
                 </div>
             </form>
+
         </div>
         <!-- /.card -->
+
 
     </div>
 @endsection

@@ -7,8 +7,8 @@
 
     <div class="container">
 
-
-        <div class="card card-dark mt-5">
+<br><br>
+        <div class="card card-dark">
             <div class="card-header">
                 <h6 class="">{{__('dashboard_layout.create_topic')}}</h6>
             </div>
@@ -49,7 +49,7 @@
 
                 <div class="container mb-3">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
 

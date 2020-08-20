@@ -15,9 +15,20 @@
     <!-- Content Wrapper. Contains page content -->
 
 
-{{--<x-dashboard.info/>--}}
     <div class="content-wrapper">
         @yield('content')
+
+ @if(Request::is('admin'))
+<div class="container-fluid">
+    <br><br><br>
+    <div class="alert alert-success" role="alert">
+        تم تسجيل الدخول للوحة التحكم بنجاح!
+    </div>
+</div>
+ @endif
+
+
+
     </div>
 
 

@@ -145,7 +145,7 @@
                             <section class="center slider">
                                 <div class="agileits_testimonial_grid">
                                     <div class="pk_testimonial_grid">
-                                        <p class="">{{$i->desc}}</p>
+                                        <p class="text-center">{{$i->desc}}</p>
                                         <div class="row text-center d-flex justify-content-center">
                                             @if($i->twitter == !null)
                                                 <div class="col-2" style="font-size: 30px">
@@ -216,7 +216,7 @@
                                     <section class="center slider">
                                         <div class="agileits_testimonial_grid">
                                             <div class="pk_testimonial_grid ">
-                                                <p class="">{{$i->desc}}</p>
+                                                <p class="text-center">{{$i->desc}}</p>
                                                 <div class="row text-center d-flex justify-content-center">
                                                     @if($i->twitter == !null)
                                                         <div class="col-2" style="font-size: 30px">

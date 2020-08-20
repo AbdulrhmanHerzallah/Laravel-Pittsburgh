@@ -21,8 +21,8 @@
 
     <div class="container">
 
-
-        <div class="card card-dark mt-5">
+<br><br>
+        <div class="card card-dark">
             <div class="card-header">
                 <h6 class="">{{__('dashboard_layout.create_topic')}} ({{$title}})</h6>
             </div>
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label for="desc">{{__('dashboard_layout.desc')}}</label>
 {{--                        <textarea name="desc" class="form-control" id="desc" rows="4"></textarea>--}}
-                        <textarea  id="desc" name="desc" class="textarea" placeholder="Place some text here"
+                        <textarea  id="desc" name="desc" class="textarea"  placeholder="Place some text here"
                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;z-index: 400"></textarea>
 
                     </div>
@@ -47,7 +47,7 @@
 
                     <div class="container mb-3">
                         <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
 
@@ -101,7 +101,7 @@
     <script>
         $(function () {
             // Summernote
-            $('.textarea').summernote({
+            $('#desc').summernote({
                 height: 300,
             })
         })

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+
+use App\Http\Requests\SliderRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -20,7 +22,7 @@ class SliderController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
         if ($request->hasFile('img'))
         {
@@ -41,17 +43,30 @@ class SliderController extends Controller
 
 
 
-    public function delete($id)
+    public function delete(Request $request)
     {
 
-       $file  = LandingPageSlider::findOrFail($id);
+       $file  = LandingPageSlider::findOrFail($request->id);
 
         if(File::exists(public_path($file->img_url))) {
             File::delete(public_path($file->img_url));
         }
-        LandingPageSlider::findOrFail($id)->delete();
+        LandingPageSlider::findOrFail($request->id)->delete();
         Alert::success(__('dashboard_layout.deletion_successful'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
         return redirect()->back();
+    }
+
+
+
+    public function update(Request $request)
+    {
+      $slide =  LandingPageSlider::find($request->id);
+      $slide->title = $request->title;
+      $slide->desc = $request->desc;
+      $slide->save();
+        Alert::success(__('تم التحديث بنجاح'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+        return redirect()->back();
+
     }
 
 

@@ -199,9 +199,10 @@
 
 
                 <div class="container mb-3">
-                    <div class="progress">
-                        <div class="progress-bar bg-dark" role="progressbar" style="width: 50%" aria-valuenow="50"
-                             aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="container mb-3">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
                     </div>
                 </div>
                 <!-- /.card-body -->
