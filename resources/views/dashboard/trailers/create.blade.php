@@ -21,40 +21,44 @@
 
                     <div class="form-group">
                         <label for="title">{{__('dashboard_layout.title')}}</label>
-                        <input type="text" class="form-control" name="title" id="title">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{old('title')}}">
+                        @error('title')
+                        <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="desc">{{__('dashboard_layout.desc')}}</label>
-                        <textarea name="desc" class="form-control" id="desc" rows="4"></textarea>
+                        <textarea name="desc" class="form-control @error('desc') is-invalid @enderror" id="desc" rows="4">{{old('desc')}}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="type">حدد نوع العرض في الواجهة</label>
                         <select class="form-control" id="type" name="type" onchange="selectType()">
-                            <option value="">حدد نوع العرض في الواجهة</option>
-                            <option value="y">Youtube</option>
-                            <option value="t">Twitter</option>
-                            <option value="p">Spotify</option>
+                            <option value="y" @if(old('type') == 'y') selected @endif>Youtube</option>
+                            <option value="t" @if(old('type') == 't') selected @endif>Twitter</option>
+                            <option value="p" @if(old('type') == 'p') selected @endif>Spotify</option>
 {{--                            <option value="i">Image</option>--}}
                         </select>
                     </div>
 
                     <div class="form-group" id="url_id" style="display: none">
                         <label for="url_id_y">Youtube Url</label>
-                        <input type="text" class="form-control" name="url_id" id="url_id_y">
+                        <input type="text" class="form-control @error('url_id') is-invalid @enderror" name="url_id" id="url_id_y" value="{{old('url_id')}}">
                     </div>
 
                     <div class="form-group" id="iframe_twitter" style="display: none">
                         <label for="iframe_twitter_l">Embed Iframe</label>
-                        <input name="iframe" type="text" class="form-control" id="iframe_twitter_l">
+                        <input name="iframe" type="text" class="form-control @error('iframe') is-invalid @enderror" id="iframe_twitter_l" value="{{old('iframe')}}">
                     </div>
 
 
-                    <div class="form-group" id="img" style="display: none">
-                        <label for="file_i">صورة</label>
-                        <input type="file" name="img" id="file_i">
-                    </div>
+{{--                    <div class="form-group" id="img" style="display: none">--}}
+{{--                        <label for="file_i">صورة</label>--}}
+{{--                        <input type="file" name="img" id="file_i">--}}
+{{--                    </div>--}}
 
                 </div>
 
@@ -115,5 +119,23 @@
             // }
 
         }
+
     </script>
+
+    @error('iframe')
+    <script type="text/javascript">
+        $(function(){
+            $('#iframe_twitter').css("display" , "block")
+        });
+    </script>
+    @enderror
+
+    @error('url_id')
+    <script type="text/javascript">
+        $(function(){
+            $('#url_id').css("display" , "block")
+        });
+    </script>
+    @enderror
+
 @endsection

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/search' , ['as' => 'trailer.search' , 'uses' => 'Dashboard\TrailerController@search']);
 
 
 Route::group(['prefix' => '/' , 'namespace' => 'Web'] , function (){
@@ -38,7 +39,7 @@ Route::group(['prefix' => '/' , 'namespace' => 'Web'] , function (){
 
 
 
-Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashboard.'] , function (){
+Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashboard.' , 'middleware' => 'auth'] , function (){
     Route::get('/' , ['as' => 'dashboard.index' , 'uses' => 'IndexController@index']);
 
     Route::group(['prefix' => '/slider'  , 'as' => 'slider.'] , function (){
@@ -71,7 +72,8 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
     Route::group(['prefix' => '/trailer'  , 'as' => 'trailer.'] , function (){
         Route::get('/create' , ['as' => 'create'  , 'uses' => 'TrailerController@create']);
         Route::post('/store' , ['as' => 'store'  , 'uses' => 'TrailerController@store']);
-//        Route::get('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'TrailerController@delete']);
+        Route::delete('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'TrailerController@delete']);
+        Route::get('/get-all-trailer' , ['as' => 'get'  , 'uses' => 'TrailerController@getAllTrailers']);
     });
 
     Route::group(['prefix' => '/topic'  , 'as' => 'topic.'] , function (){
@@ -99,3 +101,6 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
     });
 
 });
+
+
+

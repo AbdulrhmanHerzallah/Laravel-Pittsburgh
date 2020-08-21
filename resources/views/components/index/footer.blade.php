@@ -1,4 +1,5 @@
 <!-- Footer -->
+
 <footer dir="ltr" class="page-footer font-small blue-grey lighten-5 text-white" style="background-color: #061117">
     <div style="background-color: #F8F9FA;border-top: 4px solid #d5ca99" class="text-dark">
         <div class="container">
@@ -83,13 +84,13 @@
                 <h6 class="text-uppercase font-weight-bold" style="color: #F8F9FA">معلومات التواصل</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                    <i class="fas fa-home mr-3"></i>Pennsylvania , Pittsburgh </p>
                 <p>
-                    <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                    <i class="fas fa-envelope mr-3"></i> Pittcoffee@gmail.com</p>
                 <p>
-                    <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                    <i class="fas fa-phone mr-3"></i> +966 505 936 776</p>
                 <p>
-                    <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+{{--                    <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>--}}
 
             </div>
             <!-- Grid column -->

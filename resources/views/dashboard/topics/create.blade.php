@@ -35,12 +35,18 @@
                 <div class="card-body">
 
                     <div class="form-group">
+
                         <label for="desc">{{__('dashboard_layout.desc')}}</label>
 {{--                        <textarea name="desc" class="form-control" id="desc" rows="4"></textarea>--}}
                         <textarea  id="desc" name="desc" class="textarea"  placeholder="Place some text here"
                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;z-index: 400"></textarea>
 
                     </div>
+                    @error('desc')
+                    <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                    @enderror
 
                    <input type="hidden" value="{{$trailer_id}}" name="trailer_id">
 
@@ -106,6 +112,7 @@
             })
         })
     </script>
+
 
 
 @endsection

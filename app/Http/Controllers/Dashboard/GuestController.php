@@ -18,7 +18,7 @@ class GuestController extends Controller
     }
 
 //GesteRequest
-    public function store(Request $request)
+    public function store(GesteRequest $request)
     {
 
         foreach ($request->name as $index => $item) {

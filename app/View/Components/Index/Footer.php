@@ -32,7 +32,14 @@ class Footer extends Component
 
     public function takeFiveTopic()
     {
-      return Trailer::all(['title' , 'slug'])->random(4);
+
+        if (Trailer::all()->count() > 4)
+        {
+            return Trailer::all(['title' , 'slug'])->random(4);
+        }
+        else{
+            return [];
+        }
     }
 
 

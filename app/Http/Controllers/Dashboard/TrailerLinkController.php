@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\TrailerLinksRequest;
 use App\Models\TrailerLink;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class TrailerLinkController extends Controller
 {
@@ -28,9 +30,8 @@ class TrailerLinkController extends Controller
             ]);
         }
 
-
-
-        dd($request->all());
+        Alert::success(__('تم الاضافة بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+        return redirect('/');
     }
 
 }

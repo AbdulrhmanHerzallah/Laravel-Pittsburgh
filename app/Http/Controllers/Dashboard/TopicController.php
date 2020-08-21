@@ -22,19 +22,9 @@ class TopicController extends Controller
 
     public function store(Request $request)
     {
-
-//        if ($request->type == 'y')
-//        {
-//            try
-//            {
-//                $videoId = Youtube::parseVidFromURL($request->url_id);
-//            }
-//            catch (\ErrorException $exception)
-//            {
-//                return redirect()->back();
-//            }
-//        }
-
+        $request->validate([
+            'desc' => 'required'
+        ]);
 
        Topic::create($request->all());
         return redirect()->route('dashboard.iframe.create' , ['trailer_id' => $request->trailer_id]);

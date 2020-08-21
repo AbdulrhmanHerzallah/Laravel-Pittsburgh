@@ -30,9 +30,10 @@
 {{--                <a class="nav-link" href="#">من نحن</a>--}}
 {{--            </li>--}}
         </ul>
-        <form class="navbar-nav mr-auto">
-            <input class="form-control mr-sm-2" type="search" placeholder="ابحث عن موضوع" aria-label="Search">
-            <button class="btn  my-2 my-sm-0 m-1" type="submit"><i style="color: #d5ca99" class="fas fa-search"></i></button>
+        <form action="{{route('trailer.search')}}" method="get" class="navbar-nav mr-auto">
+{{--            @csrf--}}
+            <input name="title" class="form-control mr-sm-2" type="search" placeholder="ابحث عن موضوع" aria-label="Search">
+            <button  class="btn  my-2 my-sm-0 m-1" type="submit"><i style="color: #d5ca99" class="fas fa-search"></i></button>
         </form>
     </div>
 </nav>

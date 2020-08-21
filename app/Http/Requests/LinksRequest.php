@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GesteRequest extends FormRequest
+class LinksRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,8 @@ class GesteRequest extends FormRequest
     public function rules()
     {
         return [
-            'name.*' => 'required',
-            'desc.*' => 'required|max:350',
-            'file.*' => 'max:2048|image|mimes:jpeg,png,jpg,gif',
-
+            'title.*'  => 'required|max:200',
+            'link.*' => 'required|max:200',
         ];
     }
 }

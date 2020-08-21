@@ -20,6 +20,7 @@
     <div class="container-fluid bg-white">
         <div class="container-fluid bg-white">
             <br>
+            @if($trailer == !null)
             <p class="text-center font-weight-bold p-3">{{$trailer->title}}</p>
             <div class="row">
                 @if($trailer->url_id == !null || $trailer->iframe == !null)
@@ -55,7 +56,6 @@
                     </div>
                 </div>
             </div>
-
             @else
                 <div class="row">
                     <div class="col-lg text-justify mt-3">
@@ -71,6 +71,8 @@
                 </div>
 
             @endif
+            @endif
+
 
             <p class="text-justify">
                 <!--            <iframe src="https://open.spotify.com/embed-podcast/episode/0NlT42K1vlR4Ke76LE2TWZ" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>-->
@@ -161,8 +163,10 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="height: 0">
             <div class="row">
+                @if($trailer == !null)
                 @if($trailer->type == 't')
                     {!! $trailer->iframe !!}
+                @endif
                 @endif
             </div>
         </div>
