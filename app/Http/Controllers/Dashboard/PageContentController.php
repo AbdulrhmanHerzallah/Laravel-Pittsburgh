@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\LandingPageContent;
 use Illuminate\Support\Facades\File;
+use App\Models\Title;
 
 class PageContentController extends Controller
 {
@@ -14,7 +15,8 @@ class PageContentController extends Controller
     {
 
         $data = LandingPageContent::first();
-        return view('dashboard.page-content.create' , ['data' => $data]);
+        $title = Title::first();
+        return view('dashboard.page-content.create' , ['data' => $data , 'title' => $title]);
     }
 
 

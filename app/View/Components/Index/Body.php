@@ -18,9 +18,11 @@ class Body extends Component
      */
 
     public $trailer;
-    public function __construct($trailer)
+    public $title;
+    public function __construct($trailer , $title)
     {
         $this->trailer = $trailer;
+        $this->title = $title;
     }
 
 //

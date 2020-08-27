@@ -90,6 +90,14 @@
                                 <p>{{__('dashboard_layout.volunteers')}}</p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('dashboard.title.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>تحديث العنوين</p>
+                            </a>
+                        </li>
+
                         <li class="nav-item">
                             <a href="{{route('dashboard.footer_social_links.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

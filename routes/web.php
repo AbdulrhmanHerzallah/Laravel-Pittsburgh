@@ -97,6 +97,11 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
     Route::group(['prefix' => '/trailer-links'  , 'as' => 'trailerLinks.'] , function (){
         Route::get('/create/{trailer_id}' , ['as' => 'create'  , 'uses' => 'TrailerLinkController@create']);
         Route::post('/store' , ['as' => 'store'  , 'uses' => 'TrailerLinkController@store']);
+    });
+
+    Route::group(['prefix' => '/title'  , 'as' => 'title.'] , function (){
+        Route::get('/create' , ['as' => 'create'  , 'uses' => 'TitleController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'TitleController@store']);
 
     });
 

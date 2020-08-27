@@ -8,7 +8,7 @@
 
 
 @if(Request::is('/'))
-    <x-index.body :trailer="$trailer"  />
+    <x-index.body :trailer="$trailer" :title="$title"  />
 @endif
 
 <div class="container mb-5">
