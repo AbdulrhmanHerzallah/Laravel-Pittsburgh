@@ -50,7 +50,7 @@ class Body extends Component
 
 
     public function volunteer(){
-        return LandingPageVolunteer::all();
+        return LandingPageVolunteer::all()->toArray();
     }
 
 }

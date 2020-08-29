@@ -22,7 +22,13 @@
 
             <li class="nav-item font-weight-bold">
                 <a class="nav-link text-dark" href="{{route('spotify.index')}}">
-                    البرودكاست
+                    البودكاست
+                </a>
+            </li>
+
+            <li class="nav-item font-weight-bold">
+                <a class="nav-link text-dark" href="{{route('coming.index')}}">
+                    القادمون إلى بيتسبرغ
                 </a>
             </li>
 

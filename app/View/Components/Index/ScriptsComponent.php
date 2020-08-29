@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\index;
+namespace App\View\Components\Index;
 
 use Illuminate\View\Component;
 

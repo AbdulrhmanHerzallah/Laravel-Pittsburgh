@@ -25,6 +25,7 @@ Route::group(['prefix' => '/' , 'namespace' => 'Web'] , function (){
     Route::get('/video-topics'  , ['as' => 'videos.index' , 'uses' => 'YoutubeController@index']);
     Route::get('/podcasts'  , ['as' => 'spotify.index' , 'uses' => 'SpotifyController@index']);
     Route::get('/twitter'  , ['as' => 'twitter.index' , 'uses' => 'TwitterController@index']);
+    Route::get('/coming-to-pittsburgh-coffee'  , ['as' => 'coming.index' , 'uses' => 'ComingController@index']);
 
 
     Route::group(['prefix' => '/topic' , 'as' => 'topic.'] , function (){
@@ -108,4 +109,7 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
 });
 
 
-
+use App\Models\LandingPageVolunteer;
+Route::get('/test' , function (){
+dd(sizeof(LandingPageVolunteer::all()->toArray()));
+});

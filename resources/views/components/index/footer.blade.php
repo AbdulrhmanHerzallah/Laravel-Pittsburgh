@@ -70,7 +70,7 @@
             <!-- Grid column -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
-                <h6 class="text-uppercase font-weight-bold" style="color: #F8F9FA">أخر الحلقات</h6>
+                <h6 class="text-uppercase font-weight-bold" style="color: #F8F9FA">اخر الحلقات</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 @foreach($takeFiveTopic as $i)
                 <p>

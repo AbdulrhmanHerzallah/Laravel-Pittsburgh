@@ -27,6 +27,9 @@ class TitleRequest extends FormRequest
             'first_title' => 'required|max:200',
             'second_title' => 'required|max:200',
             'third_title' => 'required|max:200',
+            'count_title' => 'required|max:200',
+            'subscribe_title' => 'required|max:200',
+            'meeting_title' => 'required|max:200',
         ];
     }
 }

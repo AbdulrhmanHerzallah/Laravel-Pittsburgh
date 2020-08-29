@@ -18,6 +18,10 @@ class CreateTitleTable extends Migration
             $table->string('first_title');
             $table->string('second_title');
             $table->string('third_title');
+            $table->string('count_title');
+            $table->string('subscribe_title');
+            $table->string('meeting_title');
+            $table->string('volunteer');
             $table->timestamps();
         });
     }
