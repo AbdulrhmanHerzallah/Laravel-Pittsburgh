@@ -87,7 +87,7 @@
 
         <div class="container-fluid bg-white p-2 mt-5">
             <p class="text-center font-weight-bold">{{$title->second_title ?? 'رسالة قهوة بيتسبرغ'}}</p>
-            <p class="text-justify text-center ml2" style="font-size: 20px">
+            <p class="text-justify text-center" style="font-size: 20px">
                 {{$data->coffee_message ?? __('index.coffee_message')}}
             </p>
         </div>
@@ -110,7 +110,7 @@
 
         <div class="container-fluid bg-white p-5 mb-3">
             <p class="text-center font-weight-bold">{{$title->third_title ?? 'هدف قهوة بيتسبرغ'}}</p>
-            <p class="text-justify text-center ml2" style="font-size: 20px">
+            <p class="text-justify text-center" style="font-size: 20px">
                 {{$data->target_coffee ?? __('index.target_coffee')}}
             </p>
         </div>

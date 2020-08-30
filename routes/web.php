@@ -26,6 +26,7 @@ Route::group(['prefix' => '/' , 'namespace' => 'Web'] , function (){
     Route::get('/podcasts'  , ['as' => 'spotify.index' , 'uses' => 'SpotifyController@index']);
     Route::get('/twitter'  , ['as' => 'twitter.index' , 'uses' => 'TwitterController@index']);
     Route::get('/coming-to-pittsburgh-coffee'  , ['as' => 'coming.index' , 'uses' => 'ComingController@index']);
+    Route::get('/download'  , ['as' => 'coming.getFile' , 'uses' => 'ComingController@getFile']);
 
 
     Route::group(['prefix' => '/topic' , 'as' => 'topic.'] , function (){
@@ -75,6 +76,7 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
         Route::post('/store' , ['as' => 'store'  , 'uses' => 'TrailerController@store']);
         Route::delete('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'TrailerController@delete']);
         Route::get('/get-all-trailer' , ['as' => 'get'  , 'uses' => 'TrailerController@getAllTrailers']);
+        Route::post('/active/{id}' , ['as' => 'active'  , 'uses' => 'TrailerController@active']);
     });
 
     Route::group(['prefix' => '/topic'  , 'as' => 'topic.'] , function (){
@@ -106,10 +108,11 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
 
     });
 
+    Route::group(['prefix' => '/guide'  , 'as' => 'guide.'] , function (){
+        Route::get('/create' , ['as' => 'create'  , 'uses' => 'GuideController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'GuideController@store']);
+
+    });
+
 });
 
-
-use App\Models\LandingPageVolunteer;
-Route::get('/test' , function (){
-dd(sizeof(LandingPageVolunteer::all()->toArray()));
-});

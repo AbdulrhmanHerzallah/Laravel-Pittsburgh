@@ -32,6 +32,14 @@
                         <i class="fas fa-trash"></i>
                     </button>
                 </td>
+                <td>
+                    <form action="{{route('dashboard.trailer.active' , ['id' => $i->id])}}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-success" title="تفعيل">
+                            <i class="fas fa-snowboarding"></i>
+                        </button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>

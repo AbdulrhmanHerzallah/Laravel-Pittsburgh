@@ -5,20 +5,18 @@
 
 @section('content')
 
-
-
 <div class="container text-center">
-<p class="font-weight-bold" style="font-size: 40px">دليل القادمين إلى بيتسبرغ</p>
+<p class="font-weight-bold" style="font-size: 40px">{{$guide->title}}</p>
 
-    <div class="font-italic" style="font-size: 20px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi aspernatur at dignissimos distinctio doloremque ducimus eligendi esse excepturi illum ipsam necessitatibus non officiis optio, quia quibusdam saepe sed veniam.</div>
-    <img src="">
+    <div class="mb-3 text-justify" style="font-size: 20px">{{$guide->desc}}</div>
+    <img src="{{$guide->img}}" class="img-thumbnail" height="500px" width="500px" title="{{$guide->title}}">
 
+    <div>
+        <br/>
+        <p style="font-size: 20px;font-weight: bold">{{$guide->download_word}}</p>
+        <a href="{{$guide->file}}"><i class="fas fa-arrow-circle-down" style="font-size: 60px"></i></a>
+    </div>
 </div>
-
-
-
-
-
 
 
 @endsection

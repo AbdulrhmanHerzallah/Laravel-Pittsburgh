@@ -99,6 +99,14 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="{{route('dashboard.guide.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>الدليل</p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
                             <a href="{{route('dashboard.footer_social_links.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('dashboard_layout.footer_social_links')}}</p>
@@ -136,7 +144,7 @@
                         <li class="nav-item">
                             <a href="{{route('dashboard.trailer.get')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>حذف الموضوعات</p>
+                                <p>حذف وتفعيل الموضوعات</p>
                             </a>
                         </li>
 {{--                        <li class="nav-item">--}}

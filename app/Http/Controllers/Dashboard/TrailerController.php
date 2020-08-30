@@ -68,6 +68,17 @@ class TrailerController extends Controller
     }
 
 
+    public function active($id)
+    {
+        Trailer::query()->update(['is_published' => 0]);
+        $trailer = Trailer::find($id);
+        $trailer->is_published = 1;
+        $trailer->save();
+        Alert::success(__('تم التفعيل بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+        return redirect()->back();
+    }
+
+
     public function getAllTrailers()
     {
         return view('dashboard.trailers.delete-trailer.index' , ['trailer' => Trailer::all()]);
