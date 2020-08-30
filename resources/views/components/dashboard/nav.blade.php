@@ -111,10 +111,14 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" title="logout">
-                <i class="fas fa-door-open"></i>
-{{--                <i class="fas fa-th-large"></i>--}}
-            </a>
+            <form action="{{url('/logout')}}" method="post">
+                @csrf
+                <button type="submit" class="btn nav-link"  data-slide="true" title="logout">
+                    <i class="fas fa-door-open"></i>
+                    {{--                <i class="fas fa-th-large"></i>--}}
+                </button>
+            </form>
+
         </li>
     </ul>
 </nav>
