@@ -54,7 +54,7 @@
 
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <button type="submit" name="re_submit" value="re" class="btn btn-primary">اضف الثانية</button>
+{{--                    <button type="submit" name="re_submit" value="re" class="btn btn-primary">اضف الثانية</button>--}}
                     <button type="submit" class="btn btn-primary">اضف الاولي | التالي</button>
                 </div>
             </form>
