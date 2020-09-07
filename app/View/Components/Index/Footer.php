@@ -3,6 +3,7 @@
 namespace App\View\Components\Index;
 
 use App\Models\FooterSocialLinks;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\Component;
 use App\Models\Trailer;
 
@@ -30,17 +31,21 @@ class Footer extends Component
         return view('components.index.footer');
     }
 
-    public function takeFiveTopic()
+    public function takeFourTopic()
     {
 
-        if (Trailer::all()->count() > 4)
+        try {
+            return  Trailer::all(['title' , 'slug'])->random(4);
+
+        }catch (\InvalidArgumentException $exception)
         {
-            return Trailer::all(['title' , 'slug'])->random(4);
-        }
-        else{
-            return [];
+            return false;
         }
     }
 
+    public function contact()
+    {
+        return \App\Models\LandingPageLink::all()->last();
+    }
 
 }

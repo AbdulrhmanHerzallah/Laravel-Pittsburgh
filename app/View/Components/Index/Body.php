@@ -7,7 +7,7 @@ use App\Models\LandingPageSlider;
 use App\Models\LandingPageContent;
 use Alaouy\Youtube\Facades\Youtube;
 use App\Models\LandingPageVolunteer;
-use PHPUnit\Exception;
+use Illuminate\Support\Facades\DB;
 
 class Body extends Component
 {
@@ -50,7 +50,11 @@ class Body extends Component
 
 
     public function volunteer(){
-        return LandingPageVolunteer::all()->toArray();
+        return LandingPageVolunteer::orderBy('updated_at', 'DESC')->get();
+
     }
+
+
+
 
 }

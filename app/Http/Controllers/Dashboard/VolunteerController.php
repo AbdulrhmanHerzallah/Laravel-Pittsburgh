@@ -15,7 +15,7 @@ class VolunteerController extends Controller
 {
     public function create()
     {
-        $volunteer = LandingPageVolunteer::all();
+        $volunteer = LandingPageVolunteer::orderBy('updated_at', 'DESC')->get();
         return view('dashboard.volunteer.create' , ['vol' => $volunteer]);
     }
 
@@ -61,6 +61,7 @@ class VolunteerController extends Controller
         $vol = LandingPageVolunteer::find($id);
         $vol->name = $request->name;
         $vol->desc = $request->desc;
+        $vol->twitter = $request->twitter;
         $vol->save();
         Alert::success(__('تم تحديث المتطوع بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
         return redirect()->back();

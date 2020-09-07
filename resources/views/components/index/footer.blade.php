@@ -72,11 +72,13 @@
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold" style="color: #F8F9FA">اخر الحلقات</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                @foreach($takeFiveTopic as $i)
+                @if($takeFourTopic())
+                @foreach($takeFourTopic as $i)
                 <p>
                     <a class="text-warning" href="{{route('topic.index' , ['slug' => $i->slug])}}">{{$i->title}}</a>
                 </p>
                 @endforeach
+                @endif
             </div>
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -84,11 +86,11 @@
                 <h6 class="text-uppercase font-weight-bold" style="color: #F8F9FA">معلومات التواصل</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <i class="fas fa-home mr-3"></i>Pennsylvania , Pittsburgh </p>
+                    <i class="fas fa-home mr-3"></i>{{$contact->title}}</p>
                 <p>
-                    <i class="fas fa-envelope mr-3"></i> Pittcoffee@gmail.com</p>
+                    <i class="fas fa-envelope mr-3"></i>{{$contact->email}}</p>
                 <p>
-                    <i class="fas fa-phone mr-3"></i> +966 505 936 776</p>
+                    <i class="fas fa-phone mr-3"></i>{{$contact->phone}}</p>
                 <p>
 {{--                    <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>--}}
 

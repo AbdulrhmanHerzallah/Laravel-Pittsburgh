@@ -23,7 +23,7 @@
 
         <div class="container-fluid bg-white  pt-5 pl-5 pr-5 pb-2">
             <p class="text-center font-weight-bold ">{{$title->first_title ?? 'من نحن'}}</p>
-            <p class="text-justify" style="font-size: 20px">
+            <p class="text-justify text-center text-justify" style="font-size: 20px">
                 {{$data->about_us ?? __('index.about_as')}}
             </p>
         </div>
@@ -93,7 +93,7 @@
         </div>
 
         <div class="parallax parallax2" style="position: relative;background-image: url('{{$data->img_parallax ?? ''}}');">
-            <div style="width: 60%;height : 70% ;position: absolute;top: 43%;left: 50%;transform: translate(-50%, -50%)">
+            <div id="video" style="width: 90%;height : 80% ;position: absolute;top: 43%;left: 50%;transform: translate(-50%, -50%)">
                 <div class="text-center font-weight-bold text-white mb-2" style="font-size: 22px">{{$data->video_title ?? null}}</div>
                 <iframe height="100%" width="100%" src="https://www.youtube.com/embed/{{$video_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
@@ -116,7 +116,7 @@
         </div>
 
    <p class="text-center font-weight-bold">{{$title->volunteer ?? 'المتطوعون'}}</p>
-    <div uk-slider="center: true;autoplay: true" class="mb-5">
+    <div uk-slider="center: false;autoplay: true" class="mb-5">
 
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
@@ -133,6 +133,9 @@
                             <div class="uk-card-body">
                                 <h3 class="uk-card-title">{{$i->name}}</h3>
                                 <p>{{$i->desc}}</p>
+                                @if($i->twitter)
+                                <a href="{{$i->twitter}}" target="_blank" style="font-size: 20px" class="text-primary"><i class="fab fa-twitter"></i></a>
+                                @endif
                             </div>
                         </div>
                     </li>

@@ -31,7 +31,7 @@ class TrailerLinkController extends Controller
         }
 
         Alert::success(__('تم الاضافة بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
-        return redirect('/');
+        return redirect()->route('dashboard.img.create' , ['trailer_id' => $request->trailer_id]);
     }
 
 }

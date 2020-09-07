@@ -34,5 +34,10 @@ class Trailer extends Model
         return $this->hasMany(TrailerLink::class);
     }
 
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
 
 }

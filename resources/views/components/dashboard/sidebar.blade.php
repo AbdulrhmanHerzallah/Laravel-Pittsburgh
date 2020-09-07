@@ -66,7 +66,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            {{__('dashboard_layout.home_page')}}
+                            {{__('الصفحة الرئيسية')}}
                             <i class="fas fa-angle-left right"></i>
 {{--                            <span class="badge badge-info right">6</span>--}}
                         </p>
@@ -75,7 +75,7 @@
                         <li class="nav-item">
                             <a href="{{route('dashboard.slider.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>{{__('dashboard_layout.slider')}}</p>
+                                <p>{{__('البوم الصور')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -105,6 +105,12 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="{{route('dashboard.contact.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>معلومات التواصل</p>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="{{route('dashboard.footer_social_links.create')}}" class="nav-link">

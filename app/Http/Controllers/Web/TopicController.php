@@ -15,6 +15,7 @@ class TopicController extends Controller
         $trailer = Trailer::where('slug' , '=' , $slug)->first();
 
         $topic   = $trailer->topic;
+        $imgs   = $trailer->images;
         $iframes = $trailer->iframes;
         $gestesManin  = $trailer->gestes()->where('main' , '=' , 1)->get();
         $gestesUnMane  = $trailer->gestes()->where('main' , '=' , 0)->get();
@@ -23,7 +24,9 @@ class TopicController extends Controller
         if ($topic == null) return view('errors.empty_topic');
 
         return view('web.topics.index'
-        , ['topic' => $topic , 'iframes' => $iframes , 'gestesManin' => $gestesManin , 'gestesUnMane' =>  $gestesUnMane,  'links' => $links , 'trailer' => $trailer]
+        , ['topic' => $topic , 'iframes' => $iframes , 'gestesManin' => $gestesManin , 'gestesUnMane' =>  $gestesUnMane,  'links' => $links , 'trailer' => $trailer
+          , 'imgs' => $imgs
+            ]
         );
     }
 

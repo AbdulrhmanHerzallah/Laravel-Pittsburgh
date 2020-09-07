@@ -48,12 +48,12 @@
 
                     <div class="form-group">
                         <label for="desc">{{__('dashboard_layout.subscribed')}}</label>
-                        <input type="number" class="form-control" name="subscribed" id="title" placeholder="{{__('dashboard_layout.subscribed')}}" value="{{$data->subscribed ?? null}}">
+                        <input type="text" class="form-control" name="subscribed" id="title" placeholder="{{__('dashboard_layout.subscribed')}}" value="{{$data->subscribed ?? null}}">
                     </div>
 
                     <div class="form-group">
                         <label for="desc">{{__('dashboard_layout.meeting_count')}}</label>
-                        <input type="number" class="form-control" name="meeting_count" id="title" placeholder="{{__('dashboard_layout.meeting_count')}}" value="{{$data->meeting_count ?? null}}">
+                        <input type="text" class="form-control" name="meeting_count" id="title" placeholder="{{__('dashboard_layout.meeting_count')}}" value="{{$data->meeting_count ?? null}}">
                     </div>
 
 

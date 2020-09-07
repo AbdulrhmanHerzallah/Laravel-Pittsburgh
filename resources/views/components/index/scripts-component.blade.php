@@ -23,48 +23,6 @@
     })
 </script>
 
-
 <script>
 
-    let fab_class = document.getElementsByClassName('fab').length
-
-
-    for (i=0 ; fab_class > i ; i++)
-    {
-        document.getElementsByClassName('fab')[i].classList.add('mr-4' ,'white-text')
-    }
-
-    $('#exampleModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        modal.find('.modal-title').text('New message to ' + recipient)
-        modal.find('.modal-body input').val(recipient)
-    })
-
-
-    var number = document.querySelector('.number');
-
-
-    var textWrapper = document.querySelector('.ml2');
-    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-    anime.timeline({loop: false})
-        .add({
-            targets: '.ml2 .letter',
-            scale: [4,1],
-            opacity: [0,1],
-            translateZ: 0,
-            easing: "easeOutExpo",
-            duration: 950,
-            delay: (el, i) => 70*i,
-        }).add({
-        targets: '.ml2',
-        // opacity: 0,
-        duration: 1000,
-        easing: "easeOutExpo",
-        delay: 1000,
-    });
 </script>

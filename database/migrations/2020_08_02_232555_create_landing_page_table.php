@@ -21,8 +21,8 @@ class CreateLandingPageTable extends Migration
             $table->string('video_title');
             $table->string('video_url');
             $table->string('img_parallax')->nullable();
-            $table->bigInteger('meeting_count')->nullable();
-            $table->bigInteger('subscribed')->nullable();
+            $table->string('meeting_count')->nullable();
+            $table->string('subscribed')->nullable();
             $table->timestamps();
         });
 
@@ -34,17 +34,19 @@ class CreateLandingPageTable extends Migration
             $table->timestamps();
         });
 
-//        Schema::create('landing_page_links', function (Blueprint $table) {
-//            $table->id();
-//            $table->string('title');
-//            $table->string('link');
-//            $table->timestamps();
-//        });
+        Schema::create('landing_page_links', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->timestamps();
+        });
 
         Schema::create('landing_page_volunteers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('img_url');
+            $table->string('twitter')->nullable();
             $table->text('desc');
             $table->timestamps();
         });

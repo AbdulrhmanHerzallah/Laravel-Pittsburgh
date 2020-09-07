@@ -31,6 +31,12 @@
                         <label for="name">{{__('dashboard_layout.volunteer_name')}}</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="{{__('dashboard_layout.volunteer_name')}}">
                     </div>
+
+                    <div class="form-group">
+                        <label for="twitter">{{__('twitter link')}}</label>
+                        <input type="text" class="form-control @error('twitter') is-invalid @enderror" name="twitter" id="twitter" placeholder="">
+                    </div>
+
                     <div class="form-group">
                         <label for="desc">{{__('dashboard_layout.desc')}}</label>
                         <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="desc" rows="3"></textarea>
@@ -74,7 +80,7 @@
                         <img src="{{$i->img_url}}" width="200" height="80">
                     </td>
                     <td>
-                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#update" data-id="{{$i->id}}" data-name="{{$i->name}}" data-desc="{{$i->desc}}" data-route="{{route('dashboard.volunteer.update' , ['id' => $i->id])}}">
+                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#update" data-id="{{$i->id}}" data-name="{{$i->name}}" data-desc="{{$i->desc}}" data-twitter="{{$i->twitter}}" data-route="{{route('dashboard.volunteer.update' , ['id' => $i->id])}}">
                             <i class="fas fa-edit"></i>
                         </button>
                     </td>
@@ -137,6 +143,12 @@
                             <label for="recipient-name" class="col-form-label">الاسم</label>
                             <input type="text"  class="form-control" name="name" id="person_name">
                         </div>
+
+                        <div class="form-group">
+                            <label for="twitter" class="col-form-label">الاسم</label>
+                            <input type="text"  class="form-control" name="twitter" id="twitter">
+                        </div>
+
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">الوصف</label>
                             <textarea class="form-control" name="desc" id="desc"></textarea>
@@ -178,6 +190,7 @@
             var id = button.data('id') // Extract info from data-* attributes
             var name = button.data('name') // Extract info from data-* attributes
             var desc = button.data('desc') // Extract info from data-* attributes
+            var twitter = button.data('twitter') // Extract info from data-* attributes
             var route = button.data('route') // Extract info from data-* attributes
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -185,6 +198,7 @@
             modal.find('#id').val(id)
             modal.find('#title_name').text(name)
             modal.find('#person_name').val(name)
+            modal.find('#twitter').val(twitter)
             modal.find('#desc').val(desc)
             modal.find('#route').attr("action" , route)
         })

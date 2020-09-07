@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\LandingPageContent;
 use Illuminate\Support\Facades\File;
 use App\Models\Title;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class PageContentController extends Controller
 {
@@ -39,12 +41,9 @@ class PageContentController extends Controller
             $file_path = LandingPageContent::first()->img_parallax;
         }
 
-        LandingPageContent::updateOrCreate([
-            'id' => LandingPageContent::first()->id ?? 1
-        ]
-        ,
-            array_merge($request->all() , ['img_parallax' => $file_path])
-        );
+        LandingPageContent::updateOrCreate(['id' => LandingPageContent::first()->id ?? 1],array_merge($request->all() , ['img_parallax' => $file_path]));
+        Alert::success('تم اضافة التحديثات بنجاح');
+        return redirect()->back();
     }
 
 

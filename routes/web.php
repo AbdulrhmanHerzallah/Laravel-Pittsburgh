@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Trailer;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Models\LandingPageLink;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,5 +117,25 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
 
     });
 
-});
+    Route::group(['prefix' => '/images'  , 'as' => 'img.'] , function (){
+        Route::get('/create/{trailer_id}' , ['as' => 'create'  , 'uses' => 'ImgeController@create']);
+        Route::post('/store/' , ['as' => 'store'  , 'uses' => 'ImgeController@store']);
+    });
 
+    Route::group(['prefix' => '/contact'  , 'as' => 'contact.'] , function (){
+        Route::get('/create' , ['as' => 'create'  , 'uses' => 'ContactController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'ContactController@store']);
+    });
+
+});
+Route::get('/test' , function (){
+
+    try {
+        return  Trailer::all(['title' , 'slug'])->random(5);
+
+    }catch (\InvalidArgumentException $exception)
+    {
+        return 'f';
+
+    }
+});
