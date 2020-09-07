@@ -128,14 +128,3 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
     });
 
 });
-Route::get('/test' , function (){
-
-    try {
-        return  Trailer::all(['title' , 'slug'])->random(5);
-
-    }catch (\InvalidArgumentException $exception)
-    {
-        return 'f';
-
-    }
-});
