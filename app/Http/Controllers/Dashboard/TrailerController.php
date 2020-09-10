@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\Models\Trailer;
 use Alaouy\Youtube\Facades\Youtube;
@@ -96,4 +97,44 @@ class TrailerController extends Controller
 
 
 
+    public function updateTrailerTitle(Request $request)
+    {
+            $request->validate([
+                'title' => 'required'
+            ]);
+
+          $trailer = Trailer::find($request->id);
+          $trailer->title = $request->title;
+          $arabic_slug = ArabicSlug::SetTitle($request->title);
+          $trailer->slug = $arabic_slug;
+          $trailer->save();
+          return redirect()->back();
+
+    }
+
+
+
+        public function updateTrailer(Request $request)
+        {
+            $request->validate([
+                'desc' => 'required'
+            ]);
+
+            $trailer = Trailer::find($request->id);
+            $trailer->desc = $request->desc;
+            $trailer->save();
+            return redirect()->back();
+        }
+
+    public function updateTopic(Request $request)
+    {
+            $request->validate([
+                'desc' => 'required'
+            ]);
+
+            $topic = Topic::where('trailer_id' , '=' , $request->id)->first();
+            $topic->desc = $request->desc;
+            $topic->save();
+            return redirect()->back();
+    }
 }

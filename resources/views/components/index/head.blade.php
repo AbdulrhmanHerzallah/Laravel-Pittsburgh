@@ -47,6 +47,9 @@
         .parallax2 {
             min-height: 400px !important;
         }
+        #about{
+            padding: 2px 0.4px 2px 0.4px !important;
+        }
     }
 
 </style>

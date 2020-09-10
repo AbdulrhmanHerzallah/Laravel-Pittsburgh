@@ -32,6 +32,7 @@ class SliderController extends Controller
             $slider = new LandingPageSlider();
             $slider->title = $request->title;
             $slider->desc = $request->desc;
+            $slider->link = $request->link;
             $slider->img_url = '/img_slider/'.$timestamp.'_'.$file_name;
             $slider->save();
             Alert::success(__('dashboard_layout.insert_img_successful'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
@@ -63,6 +64,7 @@ class SliderController extends Controller
       $slide =  LandingPageSlider::find($request->id);
       $slide->title = $request->title;
       $slide->desc = $request->desc;
+      $slide->link = $request->link;
       $slide->save();
         Alert::success(__('تم التحديث بنجاح'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
         return redirect()->back();

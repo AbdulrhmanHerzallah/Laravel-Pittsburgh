@@ -30,6 +30,12 @@
                         <label for="title">{{__('dashboard_layout.title')}}</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" placeholder="{{__('dashboard_layout.title')}}">
                     </div>
+
+                    <div class="form-group">
+                        <label for="title">رابط التوجيه</label>
+                        <input type="text" class="form-control @error('link') is-invalid @enderror" name="link" id="link" placeholder="">
+                    </div>
+
                     <div class="form-group">
                         <label for="desc">{{__('dashboard_layout.desc')}}</label>
                         <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="desc" rows="3"></textarea>
@@ -73,13 +79,13 @@
                     <img src="{{$i->img_url}}" width="200" height="80">
                 </td>
                 <td>
-                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#update" data-id="{{$i->id}}" data-title="{{$i->title}}" data-desc="{{$i->desc}}">
+                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#update" data-id="{{$i->id}}" data-title="{{$i->title}}" data-desc="{{$i->desc}}" data-link="{{$i->link}}">
                         <i class="fas fa-edit"></i>
                     </button>
 {{--                    <a href="{{route('dashboard.slider.delete' , ['id' => $i->id])}}" style="font-size: 30px" class="text-success"><i class="far fa-edit"></i></a>--}}
                 </td>
                 <td>
-                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete_img" data-id="{{$i->id}}" data-title="{{$i->title}}">
+                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete_img" data-id="{{$i->id}}" data-title="{{$i->title}}" data-link="{{$i->link}}">
                         <i class="fas fa-trash"></i>
                     </button>
                 </td>
@@ -129,9 +135,15 @@
                         @csrf
                         <input type="hidden" name="id" id="id">
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">العنوان</label>
-                            <input type="text"  class="form-control" name="title" id="title_input">
+                            <label for="title" class="col-form-label">العنوان</label>
+                            <input type="text"  class="form-control" name="title" id="title">
                         </div>
+
+                        <div class="form-group">
+                            <label for="link" class="col-form-label">رابط التوجيه</label>
+                            <input type="text"  class="form-control" name="link" id="link">
+                        </div>
+
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">الوصف</label>
                             <textarea class="form-control" name="desc" id="desc"></textarea>
@@ -167,6 +179,7 @@
             var button = $(event.relatedTarget) // Button that triggered the modal
             var id = button.data('id') // Extract info from data-* attributes
             var title = button.data('title') // Extract info from data-* attributes
+            var link = button.data('link') // Extract info from data-* attributes
             var desc = button.data('desc') // Extract info from data-* attributes
             var route = button.data('route') // Extract info from data-* attributes
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -174,7 +187,8 @@
             var modal = $(this)
             modal.find('#id').val(id)
             modal.find('#route').val(route)
-            modal.find('#title').text(title)
+            modal.find('#title').val(title)
+            modal.find('#link').val(link)
             modal.find('#title_input').attr("action" , route)
             modal.find('#desc').val(desc)
         })

@@ -31,6 +31,7 @@ class CreateLandingPageTable extends Migration
             $table->string('title')->nullable();
             $table->text('desc')->nullable();
             $table->string('img_url');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
 

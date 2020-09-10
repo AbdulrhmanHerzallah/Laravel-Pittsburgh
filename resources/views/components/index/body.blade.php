@@ -4,7 +4,12 @@
         <ul class="uk-slideshow-items">
             @foreach($imgs  as $i)
             <li>
-                <img src="{{$i->img_url}}" style="height: 100% !important;width: 100%" alt="">
+                @if($i->link == null)
+                    <img src="{{$i->img_url}}" style="height: 100% !important;width: 100%" alt="">
+                @else
+                    <a href="{{$i->link}}" target="_blank"><img src="{{$i->img_url}}" style="height: 100% !important;width: 100%" alt=""></a>
+                @endif
+
                 @if($i->title == !null || $i->desc == !null)
                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
                     <h3 class="uk-margin-remove">{{$i->title}}</h3>
@@ -15,15 +20,15 @@
             @endforeach
         </ul>
 
-        <a class=" uk-position-center-left uk-position-small uk-hidden-hover" href="#"uk-slidenav-next  uk-slideshow-item="previous"></a>
-        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous  uk-slideshow-item="next"></a>
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover font-weight-bold bg-black" style="font-size: 20px" href="#"  uk-slideshow-item="previous"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover font-weight-bold bg-black" style="font-size: 20px" href="#"   uk-slideshow-item="next"><i class="fas fa-arrow-alt-circle-right"></i></a>
 
     </div>
     <div class="container-fluid bg-white">
 
-        <div class="container-fluid bg-white  pt-5 pl-5 pr-5 pb-2">
+        <div id="about" class="container-fluid bg-white  pt-5 pl-5 pr-5 pb-2">
             <p class="text-center font-weight-bold ">{{$title->first_title ?? 'من نحن'}}</p>
-            <p class="text-justify text-center text-justify" style="font-size: 20px">
+            <p class="text-justify" style="font-size: 20px">
                 {{$data->about_us ?? __('index.about_as')}}
             </p>
         </div>
@@ -108,7 +113,7 @@
             </div>
         </div>
 
-        <div class="container-fluid bg-white p-5 mb-3">
+        <div id="target" class="container-fluid bg-white p-5 mb-3">
             <p class="text-center font-weight-bold">{{$title->third_title ?? 'هدف قهوة بيتسبرغ'}}</p>
             <p class="text-justify text-center" style="font-size: 20px">
                 {{$data->target_coffee ?? __('index.target_coffee')}}

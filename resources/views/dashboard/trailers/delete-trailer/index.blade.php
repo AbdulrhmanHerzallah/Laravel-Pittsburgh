@@ -1,7 +1,18 @@
 @extends('dashboard.index.index')
 
+@section('style')
 
+    <style>
+        .note-btn[aria-label="Picture"] , .note-btn[data-original-title="Font Family"] {
+            display: none !important;
+        }
 
+        /*.note-editor .btn-toolbar button[data-event="showVideoDialog"] {*/
+        /*    display: none !important;*/
+        /*}*/
+    </style>
+
+@endsection
 
 @section('content')
 
@@ -25,24 +36,39 @@
 {{--                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#update" data-id="{{$i->id}}" data-title="{{$i->title}}" data-desc="{{$i->desc}}">--}}
 {{--                        <i class="fas fa-edit"></i>--}}
 {{--                    </button>--}}
-{{--                    --}}{{--                    <a href="{{route('dashboard.slider.delete' , ['id' => $i->id])}}" style="font-size: 30px" class="text-success"><i class="far fa-edit"></i></a>--}}
-{{--                </td>--}}
-                <td>
-                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete_img" data-route="{{route('dashboard.trailer.delete' , ['id' => $i->id])}}" data-title="{{$i->title}}">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </td>
-                <td>
-                    <form action="{{route('dashboard.trailer.active' , ['id' => $i->id])}}" method="post">
-                        @csrf
-                        <button type="submit" class="btn btn-outline-success" title="تفعيل">
-                            <i class="fas fa-snowboarding"></i>
-                        </button>
+{{--                                       </button>
                     </form>
                 </td>
             </tr>
         @endforeach
-        </tbody>
+        </tbody>     --}}{{--                    <a href="{{route('dashboard.slider.delete' , ['id' => $i->id])}}" style="font-size: 30px" class="text-success"><i class="far fa-edit"></i></a>--}}
+        {{--                </td>--}}
+        <td>
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete_img" data-route="{{route('dashboard.trailer.delete' , ['id' => $i->id])}}" data-title="{{$i->title}}">
+                <i class="fas fa-trash"></i>
+            </button>
+        </td>
+
+        <td>
+            <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#update" data-id="{{$i->id}}"
+                    data-topic="{{App\Models\Topic::find($i->id)->desc ?? ''}}"
+                    data-trailer="{{App\Models\Trailer::find($i->id)->desc ?? ''}}"
+                    data-title="{{App\Models\Trailer::find($i->id)->title ?? ''}}"
+            >
+                <i class="fas fa-edit"></i>
+            </button>
+        </td>
+
+
+        <td>
+            <form action="{{route('dashboard.trailer.active' , ['id' => $i->id])}}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-outline-success" title="تفعيل">
+                    <i class="fas fa-snowboarding"></i>
+                </button>
+            </form>
+        </td>
+        @endforeach
     </table>
 </div>
 
@@ -72,6 +98,58 @@
 </div>
 
 
+<div class="modal fade" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">تحديث المحتوي</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('dashboard.trailer.update.trailer.title')}}" method="post">
+                    @csrf
+                    <input type="hidden" class="id" name="id">
+                    <div class="form-group">
+                        <label for="title" class="col-form-label">العنوان</label>
+                        <input name="title" type="text" class="form-control" id="title">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+                <form action="{{route('dashboard.trailer.update.trailer')}}" method="post">
+                    @csrf
+                    <input type="hidden" class="id" name="id">
+                    <div class="form-group">
+                        <label for="trailer" class="col-form-label">تحديث الوصف</label>
+                        <textarea  name="desc" class="form-control" id="trailer"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+
+                </form>
+                <form action="{{route('dashboard.trailer.update.topic')}}" method="post">
+                    @csrf
+                    <input type="hidden" class="id" name="id">
+                    <div class="form-group">
+                        <label for="topic" class="col-form-label">تحديث الموضوع</label>
+                        <textarea  id="topic" name="desc" class="textarea"  placeholder="Place some text here"
+                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;z-index: 400"></textarea>                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 @endsection
 
 @section('script')
@@ -93,5 +171,34 @@
     </script>
 
 
+    <script>
+        $('#update').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            var title = button.data('title') // Extract info from data-* attributes
+            var trailer = button.data('trailer') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.id').val(id)
+            modal.find('#title').val(title)
+            modal.find('#trailer').val(trailer)
+        })
+    </script>
 
+
+
+@endsection
+
+@section('script')
+    <script>
+        $(function () {
+            // Summernote
+            $('#topic').summernote({
+                height: 300,
+                dialogsInBody: true
+
+            })
+        })
+    </script>
 @endsection

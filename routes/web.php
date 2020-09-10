@@ -80,6 +80,9 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
         Route::delete('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'TrailerController@delete']);
         Route::get('/get-all-trailer' , ['as' => 'get'  , 'uses' => 'TrailerController@getAllTrailers']);
         Route::post('/active/{id}' , ['as' => 'active'  , 'uses' => 'TrailerController@active']);
+        Route::post('/update/topic' , ['as' => 'update.topic'  , 'uses' => 'TrailerController@updateTopic']);
+        Route::post('/update/trailer' , ['as' => 'update.trailer'  , 'uses' => 'TrailerController@updateTrailer']);
+        Route::post('/update/trailer/title' , ['as' => 'update.trailer.title'  , 'uses' => 'TrailerController@updateTrailerTitle']);
     });
 
     Route::group(['prefix' => '/topic'  , 'as' => 'topic.'] , function (){

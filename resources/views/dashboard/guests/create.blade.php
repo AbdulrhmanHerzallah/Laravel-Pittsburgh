@@ -92,7 +92,7 @@
 
                             <div class="col">
                                 <label for="file_0" class="form-check-label @error('file.0') text-danger @enderror">اختار صورة شخصية للضيف</label>
-                                <input class="mt-3" type="file" name="file[]" value="{{old('file.0')}}" id="file_0">
+                                <input class="mt-3" type="file" name="file[]" value="{{old('file.0')}}" id="file_0" required>
                             </div>
                         </div>
                     </div>
@@ -170,7 +170,7 @@
 
                                 <div class="col">
                                     <label for="file_{{$i}}" class="form-check-label @error('file.'.$i) text-danger @enderror">اختار صورة شخصية للضيف</label>
-                                    <input class="mt-3 @error('file.'.$i) is-invalid @enderror" value="{{old('file'.$i)}}" type="file" name="file[]" id="file_{{$i}}">
+                                    <input class="mt-3 @error('file.'.$i) is-invalid @enderror" value="{{old('file'.$i)}}" type="file" name="file[]" id="file_{{$i}}" required>
                                 </div>
 
                                 <div class="col">
@@ -294,7 +294,7 @@
 
                             <div class="col">
                                 <label for="file_${count}" class="form-check-label">اختار صورة شخصية للضيف</label>
-                                <input class="mt-3" name="file[]" type="file" id="file_${count}">
+                                <input class="mt-3" name="file[]" type="file" id="file_${count}" required>
                             </div>
 
                             <div class="col">

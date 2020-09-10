@@ -145,7 +145,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="twitter" class="col-form-label">الاسم</label>
+                            <label for="twitter" class="col-form-label">twitter link</label>
                             <input type="text"  class="form-control" name="twitter" id="twitter">
                         </div>
 

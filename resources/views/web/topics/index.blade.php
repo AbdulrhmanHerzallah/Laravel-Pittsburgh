@@ -3,8 +3,10 @@
 <head>
     <x-index.head/>
     <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
 
     <style>
         body{font-family: 'Mada', sans-serif;background-color: #dfe6e9}
@@ -30,6 +32,8 @@
     </style>
 </head>
 <body>
+
+
 <x-index.navbar/>
 
 
@@ -59,7 +63,6 @@
                 <div class="d-flex justify-content-center" style="height: 2px;background-color: #d5ca99"></div>
             </div>
         </div>
-    <div class="container-fluid">
 
 
         <div class="row mt-3" style="border: #d5ca99 solid 1px;">
@@ -98,15 +101,35 @@
                     {!! $topic->desc !!}
                 </div>
 
-                <div class="row d-flex justify-content-center">
-                    @foreach($imgs as $i)
-                    <div class="col-lg-6 text-center">
-                        <img class="img-fluid text-center" src="{{$i->img}}" style="width:500px;height:400px;" alt="">
-                        <br><br>
-                    </div>
-                    @endforeach
-                </div>
+                <div class="container-fluid">
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
 
+                        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+                            @foreach($imgs as $i)
+                                <li style="width: 300px;height: 210px">
+                                    <img src="{{$i->img}}" style="width: 100%;height: 100%;cursor: pointer"
+                                         data-toggle="modal" data-target="#img_po" data-path="{{$i->img}}"
+                                         alt="">
+                                    <div class="uk-position-center uk-panel"></div>
+                                </li>
+                            @endforeach
+                        </ul>
+
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+                    </div>
+
+
+
+{{--                <div class="row d-flex justify-content-center">--}}
+{{--                    @foreach($imgs as $i)--}}
+{{--                    <div class="col-lg-6 text-center">--}}
+{{--                        <img class="img-fluid text-center" src="{{$i->img}}" style="width:500px;height:400px;" alt="">--}}
+{{--                        <br><br>--}}
+{{--                    </div>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
 
 
 
@@ -266,17 +289,28 @@
                     </div>
                 </div>
                 @endif
-
             </div>
         </div>
         <br>
     </div>
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
 <div class="modal fade" id="img_po" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="name">New message</h5>
+                <h5 class="modal-title" id="name"></h5>
             </div>
             <div class="modal-body">
                 <img id="img" height="100%" width="100%">
@@ -286,10 +320,15 @@
 </div>
 
 <x-index.footer/>
+{{--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>--}}
+{{--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>--}}
+{{--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>--}}
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js"></script>
 
 <script>
     $('#img_po').on('show.bs.modal', function (event) {

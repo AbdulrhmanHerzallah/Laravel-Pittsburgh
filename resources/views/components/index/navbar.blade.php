@@ -47,7 +47,7 @@
 
 
 <div  class="container mt-3 mb-3">
-    <div class="container mt-3 mb-2">
-        <img dir="ltr" src="/logo/ddlogo.png" width="150px">
+    <div class="d-flex justify-content-center m-4">
+        <a href="/"><img dir="" src="/logo/ddlogo.png" width="150px"></a>
     </div>
 </div>
