@@ -94,7 +94,7 @@
                         <li class="nav-item">
                             <a href="{{route('dashboard.title.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>تحديث العنوين</p>
+                                <p>تحديث العناوين</p>
                             </a>
                         </li>
 

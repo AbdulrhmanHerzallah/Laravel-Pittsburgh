@@ -4,6 +4,7 @@ use App\Models\Trailer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Models\LandingPageLink;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,3 +132,7 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
     });
 
 });
+
+//Route::get('test' , function (){
+//  return  Hash::make('Pittcoffee12300');
+//});

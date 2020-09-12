@@ -8,10 +8,10 @@
     @foreach($iframe as $y)
     <div class="row bg-white mt-3 card-body rounded">
         <div class="col-lg-6">
-            <iframe width="98%" height="315" src="https://www.youtube.com/embed/{{$y->url_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="98%" height="315" src="https://www.youtube.com/embed/{{$y->url_id ?? ''}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="col-lg-6 mt-3">
-            <a target="_blank" href="https://www.youtube.com/watch?v={{$y->url_id}}">{{Youtube::getVideoInfo('iLnYGAzxd9o')->snippet->title}}</a>
+            <a target="_blank" href="https://www.youtube.com/watch?v={{$y->url_id ?? ''}}">{{Youtube::getVideoInfo($y->url_id)->snippet->title ?? ''}}</a>
             <hr>
             <p>
                 {!! $y->desc !!}
