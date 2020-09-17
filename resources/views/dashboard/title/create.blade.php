@@ -26,23 +26,28 @@
             </div>
 
             <div class="form-group">
-                <label for="third_title">عدداللقاءات الحاصلة</label>
-                <input type="text" name="count_title" class="form-control" value="{{$title->count_title ?? ''}}" id="third_title" placeholder="">
+                <label for="count_title">عدداللقاءات الحاصلة</label>
+                <input type="text" name="count_title" class="form-control" value="{{$title->count_title ?? ''}}" id="count_title" placeholder="">
             </div>
 
             <div class="form-group">
-                <label for="third_title">مشترك</label>
-                <input type="text" name="subscribe_title" class="form-control" value="{{$title->subscribe_title ?? ''}}" id="third_title" placeholder="">
+                <label for="subscribe_title">مشترك</label>
+                <input type="text" name="subscribe_title" class="form-control" value="{{$title->subscribe_title ?? ''}}" id="subscribe_title" placeholder="">
             </div>
 
             <div class="form-group">
-                <label for="third_title">لقاء</label>
-                <input type="text" name="meeting_title" class="form-control" value="{{$title->meeting_title ?? ''}}" id="third_title" placeholder="">
+                <label for="meeting_title">لقاء</label>
+                <input type="text" name="meeting_title" class="form-control" value="{{$title->meeting_title ?? ''}}" id="meeting_title" placeholder="">
             </div>
 
             <div class="form-group">
-                <label for="third_title">المتطوعون</label>
-                <input type="text" name="volunteer" class="form-control" value="{{$title->volunteer ?? ''}}" id="third_title" placeholder="">
+                <label for="volunteer">المتطوعون</label>
+                <input type="text" name="volunteer" class="form-control" value="{{$title->volunteer ?? ''}}" id="volunteer" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="success">شركاء النجاح</label>
+                <input type="text" name="success" class="form-control" value="{{$title->success ?? ''}}" id="success" placeholder="">
             </div>
 
             <button type="submit" class="btn btn-primary">حفظ</button>

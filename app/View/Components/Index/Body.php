@@ -8,6 +8,7 @@ use App\Models\LandingPageContent;
 use Alaouy\Youtube\Facades\Youtube;
 use App\Models\LandingPageVolunteer;
 use Illuminate\Support\Facades\DB;
+use App\Models\Success;
 
 class Body extends Component
 {
@@ -54,7 +55,9 @@ class Body extends Component
 
     }
 
-
-
+    public function success()
+    {
+        return Success::orderBy('updated_at', 'DESC')->get();
+    }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Success;
 use Illuminate\Http\Request;
 use App\Models\LandingPageVolunteer;
 use Intervention\Image\Facades\Image;
@@ -65,8 +66,13 @@ class VolunteerController extends Controller
         $vol->save();
         Alert::success(__('تم تحديث المتطوع بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
         return redirect()->back();
+    }
 
-
+    public function destroy($id)
+    {
+        Success::find($id)->delete();
+        Alert::success(__('تم تحديث المتطوع بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+        return redirect()->back();
     }
 
 

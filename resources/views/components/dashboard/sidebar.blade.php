@@ -106,6 +106,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="{{route('dashboard.success.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>شركاء النجاح</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="{{route('dashboard.contact.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>معلومات التواصل</p>

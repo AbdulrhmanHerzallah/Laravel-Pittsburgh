@@ -93,10 +93,6 @@
             @endforeach
             </tbody>
         </table>
-
-
-
-
     </div>
         <!-- /.card -->
 

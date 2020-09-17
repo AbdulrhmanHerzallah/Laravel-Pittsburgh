@@ -82,7 +82,7 @@ class TrailerController extends Controller
 
     public function getAllTrailers()
     {
-        return view('dashboard.trailers.delete-trailer.index' , ['trailer' => Trailer::all()]);
+        return view('dashboard.trailers.delete-trailer.index' , ['trailer' => Trailer::orderBy('updated_at', 'DESC')->get()]);
     }
 
     public function search(Request $request)

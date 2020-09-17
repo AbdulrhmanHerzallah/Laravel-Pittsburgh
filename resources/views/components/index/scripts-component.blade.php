@@ -22,7 +22,5 @@
         modal.find('.name').val("f")
     })
 </script>
+@include('sweetalert::alert')
 
-<script>
-
-</script>

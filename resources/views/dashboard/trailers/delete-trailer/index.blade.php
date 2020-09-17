@@ -16,7 +16,7 @@
 
 @section('content')
 
-<div class="container">
+<div id="container" class="container" style="display: none">
     <br><br>
     <table class="table table-dark">
         <thead>
@@ -153,7 +153,11 @@
 @endsection
 
 @section('script')
-
+<script>
+    setTimeout(function (){
+        document.getElementById('container').style.display = 'block'
+    },3000)
+</script>
 
     <script>
         $('#delete_img').on('show.bs.modal', function (event) {
@@ -191,6 +195,7 @@
 @endsection
 
 @section('script')
+
     <script>
         $(function () {
             // Summernote

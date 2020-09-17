@@ -2,14 +2,22 @@
 <html dir="rtl" lang="ar">
 <head>
     <x-index.head/>
-    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap" rel="stylesheet">
+{{--    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap" rel="stylesheet">--}}
+    <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
 
     <style>
-        body{font-family: 'Mada', sans-serif;background-color: #dfe6e9}
+        body{
+            /*font-family: 'Tajawal', sans-serif;*/
+            font-family: 'Almarai', sans-serif;
+
+            background-color: #dfe6e9
+
+        }
         .main {
             font-size: 18px;text-align: justify;line-height: 2.5;padding: 0 160px 0 160px;margin-top: 15px;
         }
@@ -58,6 +66,16 @@
             <h4 class="text-center font-weight-bold">{{$trailer->title}}</h4>
         @endif
 
+
+        @if($trailer->type == 'p')
+            <div class="row d-flex justify-content-center mt-4 ">
+                <div class="col-lg-7 text-center">
+                    {!! $trailer->iframe !!}
+                </div>
+            </div>
+            <h4 class="text-center font-weight-bold">{{$trailer->title}}</h4>
+        @endif
+
         <div class="row d-flex justify-content-center mt-2">
             <div class="col-lg-5">
                 <div class="d-flex justify-content-center" style="height: 2px;background-color: #d5ca99"></div>
@@ -97,28 +115,56 @@
                 </div>
                 </div>
 
+                <br/>
+                <br/>
+
+
                 <div class="main">
                     {!! $topic->desc !!}
                 </div>
 
-                <div class="container-fluid">
-                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+                <br/>
+                <br/>
+                <div class="d-flex justify-content-center">
+                <div style="width: 75%" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active; center: true">
 
-                        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+                    <ul class="uk-slider-items uk-grid">
+                        <li class="">
                             @foreach($imgs as $i)
-                                <li style="width: 300px;height: 210px">
-                                    <img src="{{$i->img}}" style="width: 100%;height: 100%;cursor: pointer"
-                                         data-toggle="modal" data-target="#img_po" data-path="{{$i->img}}"
-                                         alt="">
-                                    <div class="uk-position-center uk-panel"></div>
-                                </li>
-                            @endforeach
-                        </ul>
+                            <div class="uk-panel" style="width: 600px;height: 400px;">
+                                <img src="{{$i->img}}" style="height: 100%;width: 100%;" alt="">
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-left"></i></a>
 
-                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-right"></i></a>
 
-                    </div>
+                </div>
+                </div>
+
+
+
+
+{{--                <div class="container-fluid">--}}
+{{--                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>--}}
+
+{{--                        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">--}}
+{{--                            @foreach($imgs as $i)--}}
+{{--                                <li style="width: 300px;height: 210px">--}}
+{{--                                    <img src="{{$i->img}}" style="width: 100%;height: 100%;cursor: pointer"--}}
+{{--                                         data-toggle="modal" data-target="#img_po" data-path="{{$i->img}}"--}}
+{{--                                         alt="">--}}
+{{--                                    <div class="uk-position-center uk-panel"></div>--}}
+{{--                                </li>--}}
+{{--                            @endforeach--}}
+{{--                        </ul>--}}
+
+{{--                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-right"></i></a>--}}
+{{--                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slider-item="next"><i class="fas fa-arrow-alt-circle-left"></i></a>--}}
+
+{{--                    </div>--}}
 
 
 
@@ -301,7 +347,6 @@
 
 
 
-</div>
 
 
 
@@ -325,7 +370,7 @@
 {{--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>--}}
 {{--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>--}}
 {{--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>--}}
-{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

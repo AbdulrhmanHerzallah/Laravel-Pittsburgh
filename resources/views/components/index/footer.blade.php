@@ -8,7 +8,7 @@
                 <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
                     @foreach($links as $i)
                     <!-- Facebook -->
-                    <a href="{{$i->link}}" title="{{$i->title}}" style="text-decoration: none;color: {{$i->color}};font-size: 18px">
+                    <a href="{{$i->link}}" class="mr-3 ml-3" title="{{$i->title}}" style="text-decoration: none;color: {{$i->color}};font-size: 20px">
                         {!! $i->icon !!}
                     </a>
                     @endforeach
@@ -32,14 +32,15 @@
                 <!-- Content -->
                 <!--                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">-->
                 <div class="d-flex justify-content-center">
-                    <form>
+                    <form action="{{route('send.mail')}}" method="post">
+                        @csrf
                         <h6 dir="rtl" class="text-uppercase font-weight-bold text-center" style="color: #F8F9FA">تواصل معنا</h6>
                         <fieldset class="uk-fieldset">
                             <div class="uk-margin">
-                                <input dir="rtl" class="uk-input" type="text" placeholder="الايميل*">
+                                <input name="email"  dir="rtl" class="uk-input" type="text" placeholder="الايميل*" required>
                             </div>
                             <div class="uk-margin">
-                                <textarea dir="rtl" class="uk-textarea" rows="5" placeholder="ما يخطر في بالك*"></textarea>
+                                <textarea name="desc" dir="rtl" class="uk-textarea" rows="5" placeholder="ما يخطر في بالك*" required></textarea>
                             </div>
                             <div class="d-flex justify-content-end">
                                 <button class="uk-button uk-button-primary">إرسال</button>
@@ -70,7 +71,7 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold" style="color: #F8F9FA">اخر الحلقات</h6>
-                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 45px;">
                 @if($takeFourTopic())
                 @foreach($takeFourTopic as $i)
                 <p>

@@ -22,6 +22,7 @@ class CreateTitleTable extends Migration
             $table->string('subscribe_title');
             $table->string('meeting_title');
             $table->string('volunteer');
+            $table->string('success');
             $table->timestamps();
         });
     }

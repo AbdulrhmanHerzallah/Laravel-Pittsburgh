@@ -125,10 +125,10 @@
 
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
-            <ul class="uk-slider-items  uk-grid">
+            <ul class="uk-slider-items uk-grid">
                 @foreach($volunteer as $i)
                     <li>
-                        <div class="uk-card uk-card-default" style="width: 300px">
+                        <div class="uk-card uk-card-default" style="width: 300px;transform: translate3d(-50px, 0px, 0px);">
                             <div class="uk-card-media-top">
                                 <img src="{{$i->img_url}}"
                                      alt="{{$i->name}}"
@@ -146,11 +146,54 @@
                     </li>
                 @endforeach
             </ul>
-            <a class="uk-position-center-right uk-position-small uk-hidden-hover text-dark" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="uk-position-center-left uk-position-small uk-hidden-hover text-dark" href="#" uk-slidenav-next uk-slider-item="next"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-right"></i></a>
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-left"></i></a>
         </div>
         <br/>
         <br/>
+
+
+        <p class="text-center font-weight-bold">{{$title->success ?? 'شركاء النجاح'}}</p>
+        <div uk-slider="center: false;autoplay: false" class="mb-5">
+
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                <ul class="uk-slider-items uk-grid">
+                    @foreach($success as $key => $i)
+                        <li>
+                            <div class="uk-card uk-card-default" style="width: 300px">
+                                <div class="uk-card-media-top">
+                                    <img src="{{$i->img_url}}"
+                                         alt="{{$i->name}}"
+                                         title="{{$i->name}}"
+                                    >
+                                </div>
+                                <div class="uk-card-body">
+                                    <h3 class="uk-card-title">{{$i->name}}</h3>
+                                    <p>{{$i->desc}}</p>
+                                    @if($i->twitter)
+                                        <a href="{{$i->twitter}}" target="_blank" style="font-size: 20px" class="text-primary"><i class="fab fa-twitter"></i></a>
+                                    @endif
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-right"></i></a>
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-left"></i></a>
+            </div>
+            <br/>
+            <br/>
+
+
+
+
+
+
+
+
+
+
     </div>
 </div>
 
@@ -166,5 +209,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>

@@ -131,8 +131,13 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
         Route::post('/store' , ['as' => 'store'  , 'uses' => 'ContactController@store']);
     });
 
+    Route::group(['prefix' => '/success'  , 'as' => 'success.'] , function (){
+        Route::get('/create' , ['as' => 'create'  , 'uses' => 'SuccessController@create']);
+        Route::post('/store' , ['as' => 'store'  , 'uses' => 'SuccessController@store']);
+        Route::post('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'SuccessController@destroy']);
+        Route::post('/update/{id}' , ['as' => 'update'  , 'uses' => 'SuccessController@update']);
+    });
+
 });
 
-//Route::get('test' , function (){
-//  return  Hash::make('Pittcoffee12300');
-//});
+Route::post('/send-mail' , 'EmailController@store')->name('send.mail');

@@ -39,7 +39,7 @@ class GuestController extends Controller
             'name' => $item,
             'twitter' => $request->twitter[$index],
             'facebook' => $request->facebook[$index],
-            'instagram'=> $request->nstagram[$index],
+            'instagram'=> $request->instagram[$index],
             'snapchat' => $request->snapchat[$index],
             'desc' => $request->desc[$index],
             'web' => $request->web[$index],
