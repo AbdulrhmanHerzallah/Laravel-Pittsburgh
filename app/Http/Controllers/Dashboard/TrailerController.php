@@ -90,6 +90,7 @@ class TrailerController extends Controller
       $trailer =  Trailer::where('title' , 'LIKE' , '%'.$request->title.'%' )->get();
       if ($trailer->isEmpty())
       {
+          Alert::warning('نأسف' ,'لا يوجد نتيجة شكراََ لك')->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
           return redirect()->back();
       }
         return view('web.search.index' , ['trailer' => $trailer]);
