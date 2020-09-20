@@ -28,10 +28,11 @@
 
     </div>
     <div class="container-fluid bg-white">
-
+<br/>
+<br/>
         <div id="about" class="container-fluid bg-white  pt-5 pl-5 pr-5 pb-2">
             <p class="text-center font-weight-bold ">{{$title->first_title ?? 'من نحن'}}</p>
-            <p class="text-center" style="font-size: 20px">
+            <p class="text-justify" style="font-size: 20px">
                 {{$data->about_us ?? __('index.about_as')}}
             </p>
         </div>

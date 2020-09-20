@@ -239,7 +239,9 @@
                                                     </div>
                                                 @endif
                                         </div>
-                                        <div class="pk_testimonial_grid_pos">
+                                        <br/>
+                                        <br/>
+                                        <div class="pk_testimonial_grid_pos mb-5">
                                             @if($i->img_url != null)
                                             <img src="{{$i->img_url}}" alt="{{$i->name}}" style="cursor: pointer;height: 90px;width: 90px" data-toggle="modal" data-target="#img_po" data-path="{{$i->img_url}}" data-name="{{$i->name}}" class="img-responsive" />
                                             @endif
@@ -248,6 +250,7 @@
                                 </div>
                             </section>
                         </div>
+                            <br><br>
                         @endforeach
                     </div>
                 </div>
@@ -311,7 +314,9 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <div class="pk_testimonial_grid_pos">
+                                            <br/>
+                                            <br/>
+                                            <div class="pk_testimonial_grid_pos mb-5">
                                                 @if($i->img_url != null)
                                                     <img src="{{$i->img_url}}" alt="{{$i->name}}" style="cursor: pointer;height: 90px;width: 90px" data-toggle="modal" data-target="#img_po" data-path="{{$i->img_url}}" data-name="{{$i->name}}" class="img-responsive" />
                                                 @endif
@@ -320,6 +325,7 @@
                                     </div>
                                 </section>
                             </div>
+                            <br><br>
                         @endforeach
                     </div>
                 </div>
