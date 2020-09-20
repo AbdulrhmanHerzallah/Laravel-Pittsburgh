@@ -128,10 +128,10 @@
         </div>
 
    <p class="text-center font-weight-bold">{{$title->volunteer ?? 'المتطوعون'}}</p>
-    <div uk-slider="center: false;autoplay: true" class="mb-5">
+    <div uk-slider="center: true;autoplay: true" class="mb-5">
 
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-            <ul class="uk-slider-items uk-grid" style="margin-right: 30px">
+            <ul class="uk-slider-items uk-grid">
                 @foreach($volunteer as $i)
                     <li>
                         <div class="uk-card uk-card-default" style="width: 300px;height: 520px">
@@ -163,11 +163,11 @@
 
 
         <p class="text-center font-weight-bold">{{$title->success ?? 'شركاء النجاح'}}</p>
-        <div uk-slider="center: false;autoplay: true" class="mb-5">
+        <div uk-slider="center: true;autoplay: true" class="mb-5">
 
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
-                <ul class="uk-slider-items uk-grid" style="margin-right: 30px">
+                <ul class="uk-slider-items uk-grid">
                     @foreach($success as $key => $i)
                         <li>
                             <div class="uk-card uk-card-default" style="width: 300px;height: 520px">

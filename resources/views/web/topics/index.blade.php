@@ -36,7 +36,9 @@
 
             }
 
+
         }
+
 
     </style>
 </head>
@@ -194,13 +196,18 @@
                         <div class="phpkida_testimonials_grids">
                             <section class="center slider">
                                 <div class="agileits_testimonial_grid">
+
                                     <div class="pk_testimonial_grid">
+                                        <div class="">
+                                            @if($i->img_url != null)
+                                                <img  src="{{$i->img_url}}" alt="{{$i->name}}" style="cursor: pointer;height: 200px;width: 200px;" data-toggle="modal" data-target="#img_po" data-path="{{$i->img_url}}" data-name="{{$i->name}}" class="img-responsive img_gaest" />
+                                            @endif
+                                        </div>
                                         <h6 class="text-center" style="font-size: 20px !important;font-family: 'Almarai', sans-serif !important;">{{$i->name}}</h6>
                                         <h4 class="text-center" style="font-family: 'Almarai', sans-serif !important;">{{$i->desc}}</h4>
-
                                         <div class="row text-center d-flex justify-content-center">
                                         @if($i->twitter == !null)
-                                                <div class="col-2" style="font-size: 30px">
+                                                <div class="col-lg-2" style="font-size: 30px">
                                                     <a target="_blank" href="{{$i->twitter}}" class="text-info">
                                                         <i class="fab fa-twitter"></i>
                                                     </a>
@@ -208,7 +215,7 @@
                                             @endif
 
                                                 @if($i->facebook == !null)
-                                                    <div class="col-2" style="font-size: 30px">
+                                                    <div class="col-lg-2" style="font-size: 30px">
                                                         <a target="_blank" href="{{$i->facebook}}" class="text-primary">
                                                             <i class="fab fa-facebook"></i>
                                                         </a>
@@ -216,7 +223,7 @@
                                                 @endif
 
                                                 @if($i->youtube == !null)
-                                                    <div class="col-2" style="font-size: 30px">
+                                                    <div class="col-lg-2" style="font-size: 30px">
                                                         <a target="_blank" href="{{$i->youtube}}" class="text-danger">
                                                             <i class="fab fa-youtube"></i>
                                                         </a>
@@ -224,7 +231,7 @@
                                                 @endif
 
                                                 @if($i->instagram == !null)
-                                                    <div class="col-2" style="font-size: 30px">
+                                                    <div class="col-lg-2" style="font-size: 30px">
                                                         <a target="_blank" href="{{$i->instagram}}" style="color: brown;">
                                                             <i class="fab fa-instagram"></i>
                                                         </a>
@@ -232,19 +239,12 @@
                                                 @endif
 
                                                 @if($i->snapchat == !null)
-                                                    <div class="col-2" style="font-size: 30px">
+                                                    <div class="col-lg-2" style="font-size: 30px">
                                                         <a target="_blank" href="{{$i->snapchat}}" class="text-warning">
                                                             <i class="fab fa-snapchat"></i>
                                                         </a>
                                                     </div>
                                                 @endif
-                                        </div>
-                                        <br/>
-                                        <br/>
-                                        <div class="pk_testimonial_grid_pos mb-5">
-                                            @if($i->img_url != null)
-                                            <img src="{{$i->img_url}}" alt="{{$i->name}}" style="cursor: pointer;height: 90px;width: 90px" data-toggle="modal" data-target="#img_po" data-path="{{$i->img_url}}" data-name="{{$i->name}}" class="img-responsive" />
-                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -270,12 +270,17 @@
                                 <section class="center slider">
                                     <div class="agileits_testimonial_grid">
                                         <div class="pk_testimonial_grid">
+                                            <div class="">
+                                                @if($i->img_url != null)
+                                                    <img  src="{{$i->img_url}}" alt="{{$i->name}}" style="cursor: pointer;height: 200px;width: 200px;" data-toggle="modal" data-target="#img_po" data-path="{{$i->img_url}}" data-name="{{$i->name}}" class="img-responsive img_gaest" />
+                                                @endif
+                                            </div>
                                             <h6 class="text-center" style="font-size: 20px !important;font-family: 'Almarai', sans-serif !important;">{{$i->name}}</h6>
                                             <h4 class="text-center" style="font-family: 'Almarai', sans-serif !important;">{{$i->desc}}</h4>
 
                                             <div class="row text-center d-flex justify-content-center">
                                                 @if($i->twitter == !null)
-                                                    <div class="col-2" style="font-size: 30px">
+                                                    <div class="col-lg-2" style="font-size: 30px">
                                                         <a target="_blank" href="{{$i->twitter}}" class="text-info">
                                                             <i class="fab fa-twitter"></i>
                                                         </a>
@@ -283,7 +288,7 @@
                                                 @endif
 
                                                 @if($i->facebook == !null)
-                                                    <div class="col-2" style="font-size: 30px">
+                                                    <div class="col-lg-2" style="font-size: 30px">
                                                         <a target="_blank" href="{{$i->facebook}}" class="text-primary">
                                                             <i class="fab fa-facebook"></i>
                                                         </a>
@@ -291,7 +296,7 @@
                                                 @endif
 
                                                 @if($i->youtube == !null)
-                                                    <div class="col-2" style="font-size: 30px">
+                                                    <div class="col-lg-2" style="font-size: 30px">
                                                         <a target="_blank" href="{{$i->youtube}}" class="text-danger">
                                                             <i class="fab fa-youtube"></i>
                                                         </a>
@@ -299,7 +304,7 @@
                                                 @endif
 
                                                 @if($i->instagram == !null)
-                                                    <div class="col-2" style="font-size: 30px">
+                                                    <div class="col-lg-2" style="font-size: 30px">
                                                         <a target="_blank" href="{{$i->instagram}}" style="color: brown;">
                                                             <i class="fab fa-instagram"></i>
                                                         </a>
@@ -307,20 +312,14 @@
                                                 @endif
 
                                                 @if($i->snapchat == !null)
-                                                    <div class="col-2" style="font-size: 30px">
+                                                    <div class="col-lg-2" style="font-size: 30px">
                                                         <a target="_blank" href="{{$i->snapchat}}" class="text-warning">
                                                             <i class="fab fa-snapchat"></i>
                                                         </a>
                                                     </div>
                                                 @endif
                                             </div>
-                                            <br/>
-                                            <br/>
-                                            <div class="pk_testimonial_grid_pos mb-5">
-                                                @if($i->img_url != null)
-                                                    <img src="{{$i->img_url}}" alt="{{$i->name}}" style="cursor: pointer;height: 90px;width: 90px" data-toggle="modal" data-target="#img_po" data-path="{{$i->img_url}}" data-name="{{$i->name}}" class="img-responsive" />
-                                                @endif
-                                            </div>
+
                                         </div>
                                     </div>
                                 </section>
