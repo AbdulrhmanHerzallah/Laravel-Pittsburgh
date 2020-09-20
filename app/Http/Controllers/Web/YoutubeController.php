@@ -14,7 +14,7 @@ class YoutubeController extends Controller
 {
     public function index()
     {
-        $iframe = Trailer::where('type' , '=' , 'y')->paginate(4);
+        $iframe = Trailer::where('type' , '=' , 'y')->orderBy('id' , 'DESC')->paginate(4);
         return view('web.youtube.index' , ['iframe' => $iframe]);
     }
 }

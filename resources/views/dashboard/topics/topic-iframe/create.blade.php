@@ -26,7 +26,8 @@
 
                     <div class="form-group">
                         <label for="type">حدد نوع العرض في الواجهة</label>
-                        <select class="form-control" id="type" name="type" onchange="selectType()">
+                        <select class="form-control" id="type" name="type" onclick="selectType()" onchange="selectType()">
+                            <option selected></option>
                             <option value="y" @if(old('type') == 'y') selected @endif>Youtube</option>
                             <option value="t" @if(old('type') == 't') selected @endif>Twitter</option>
                             <option value="p" @if(old('type') == 'p') selected @endif>Spotify</option>
@@ -55,7 +56,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
 {{--                    <button type="submit" name="re_submit" value="re" class="btn btn-primary">اضف الثانية</button>--}}
-                    <button type="submit" class="btn btn-primary">اضف الاولي | التالي</button>
+                    <button type="submit" class="btn btn-primary">التالي</button>
                 </div>
             </form>
         </div>

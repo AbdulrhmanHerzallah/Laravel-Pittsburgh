@@ -23,12 +23,20 @@ class ImgeController extends Controller
             'img.*' => 'required|image'
         ]);
 
-        foreach ($request->file('img') as $i)
+        try {
+            foreach ($request->file('img') as $i)
+            {
+                $fileName = Carbon::now()->timestamp.'_'.$i->getClientOriginalName();
+                $i->move(public_path('img') , $fileName);
+                Image::create(['img' => '/img/'.$fileName , 'trailer_id' => $request->trailer_id]);
+            }
+        }catch (\ErrorException $exception)
         {
-            $fileName = Carbon::now()->timestamp.'_'.$i->getClientOriginalName();
-            $i->move(public_path('img') , $fileName);
-            Image::create(['img' => '/img/'.$fileName , 'trailer_id' => $request->trailer_id]);
+            Alert::warning('لم تقم بارفاق صور!');
+            return redirect()->back();
         }
+
+        Alert::success('تم ارفاق الصور بنجاح !');
         return redirect('/admin');
     }
 }

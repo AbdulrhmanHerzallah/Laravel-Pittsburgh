@@ -36,7 +36,7 @@
 
                     <div class="form-group">
                         <label for="type">حدد نوع العرض في الواجهة</label>
-                        <select class="form-control" id="type" name="type" onchange="selectType()">
+                        <select class="form-control" id="type" name="type" onclick="selectType()" onchange="selectType()">
                             <option value="y" @if(old('type') == 'y') selected @endif>Youtube</option>
                             <option value="t" @if(old('type') == 't') selected @endif>Twitter</option>
                             <option value="p" @if(old('type') == 'p') selected @endif>Spotify</option>

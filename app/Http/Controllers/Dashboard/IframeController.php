@@ -21,37 +21,20 @@ class IframeController extends Controller
     public function store(Request $request)
     {
 
-        if ($request->re_submit == 're')
-        {
-            if ($request->type == 'y')
-            {
-                try
-                {
-                    $videoId = Youtube::parseVidFromURL($request->url_id);
-                }
-                catch (\ErrorException $exception)
-                {
-                    return redirect()->back();
-                }
-            }
-            Iframe::create(array_merge($request->except(['url_id' , 're_submit']) , ['url_id' => $videoId ?? null]));
-            return redirect()->back();
-        }
-
-      if ($request->type == 'y')
-        {
-       try
-        {
-         $videoId = Youtube::parseVidFromURL($request->url_id);
-        }
-        catch (\ErrorException $exception)
-         {
+        if ($request->type == 'y') {
+            try {
+                $videoId = Youtube::parseVidFromURL($request->url_id);
+            } catch (\Exception $exception) {
+                Alert::warning('لا يبود انك قمت بارفاق رابط يوتيوب!');
                 return redirect()->back();
-         }
+            }
+        }
+        else {
+            return redirect()->route('dashboard.gestes.create', ['trailer_id' => $request->trailer_id]);
         }
 
-        Iframe::create(array_merge($request->except(['url_id' , 're_submit']) , ['url_id' => $videoId ?? null]));
-        return redirect()->route('dashboard.gestes.create' , ['trailer_id' => $request->trailer_id]);
+        Iframe::create(array_merge($request->except(['url_id', 're_submit']), ['url_id' => $videoId ?? null]));
+        return redirect()->route('dashboard.gestes.create', ['trailer_id' => $request->trailer_id]);
     }
 
 

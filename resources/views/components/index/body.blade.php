@@ -20,15 +20,18 @@
             @endforeach
         </ul>
 
-        <a class="uk-position-center-left uk-position-small uk-hidden-hover font-weight-bold bg-black" style="font-size: 20px" href="#"  uk-slideshow-item="previous"><i class="fas fa-arrow-alt-circle-left"></i></a>
-        <a class="uk-position-center-right uk-position-small uk-hidden-hover font-weight-bold bg-black" style="font-size: 20px" href="#"   uk-slideshow-item="next"><i class="fas fa-arrow-alt-circle-right"></i></a>
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover font-weight-bold" style="font-size: 20px" href="#" uk-slidenav-next uk-slideshow-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover font-weight-bold" style="font-size: 20px" href="#" uk-slidenav-previous uk-slideshow-item="next"></a>
+
+        {{--        <a class="uk-position-center-left uk-position-small uk-hidden-hover font-weight-bold bg-black" style="font-size: 20px" href="#"  uk-slideshow-item="previous"><i class="fas fa-arrow-alt-circle-left"></i></a>--}}
+{{--        <a class="uk-position-center-right uk-position-small uk-hidden-hover font-weight-bold bg-black" style="font-size: 20px" href="#"   uk-slideshow-item="next"><i class="fas fa-arrow-alt-circle-right"></i></a>--}}
 
     </div>
     <div class="container-fluid bg-white">
 
         <div id="about" class="container-fluid bg-white  pt-5 pl-5 pr-5 pb-2">
             <p class="text-center font-weight-bold ">{{$title->first_title ?? 'من نحن'}}</p>
-            <p class="text-justify" style="font-size: 20px">
+            <p class="text-center" style="font-size: 20px">
                 {{$data->about_us ?? __('index.about_as')}}
             </p>
         </div>
@@ -40,18 +43,21 @@
                 <div class="row">
                     @if($trailer->url_id == !null || $trailer->iframe == !null)
 
-                        <div class="col-lg-6 uk-animation-toggle position-relative" style="height: 300px">
+                        <div class="col-lg-6 uk-animation-toggle position-relative" @if($trailer->type == 't')  @else style="height: 300px"  @endif>
 
                             @if($trailer->type == 'y')
                                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{$trailer->url_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             @endif
 
                             @if($trailer->type == 't')
-                                <img src="/images/Twitter%20logo%202012.png"
-                                     class="uk-animation-fade"
-                                     style="cursor: pointer;width: 50%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%)"
-                                     data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"
-                                >
+{{--                                <img src="/images/Twitter%20logo%202012.png"--}}
+{{--                                     class="uk-animation-fade"--}}
+{{--                                     style="cursor: pointer;width: 50%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%)"--}}
+{{--                                     data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"--}}
+{{--                                >--}}
+                                    <div>
+                                        {!! $trailer->iframe !!}
+                                    </div>
                             @endif
 
                             @if($trailer->type == 'p')
@@ -124,11 +130,10 @@
     <div uk-slider="center: false;autoplay: true" class="mb-5">
 
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-
-            <ul class="uk-slider-items uk-grid">
+            <ul class="uk-slider-items uk-grid" style="margin-right: 30px">
                 @foreach($volunteer as $i)
                     <li>
-                        <div class="uk-card uk-card-default" style="width: 300px;transform: translate3d(-50px, 0px, 0px);">
+                        <div class="uk-card uk-card-default" style="width: 300px;height: 520px">
                             <div class="uk-card-media-top">
                                 <img src="{{$i->img_url}}"
                                      alt="{{$i->name}}"
@@ -136,7 +141,7 @@
                                 >
                             </div>
                             <div class="uk-card-body">
-                                <h3 class="uk-card-title">{{$i->name}}</h3>
+                                <h3 class="uk-card-title" style="font-size: 20px!important;">{{$i->name}}</h3>
                                 <p>{{$i->desc}}</p>
                                 @if($i->twitter)
                                 <a href="{{$i->twitter}}" target="_blank" style="font-size: 20px" class="text-primary"><i class="fab fa-twitter"></i></a>
@@ -146,22 +151,25 @@
                     </li>
                 @endforeach
             </ul>
-            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-right"></i></a>
-            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-left"></i></a>
+            <a class="uk-position-center-left uk-position-large font-weight-bold" href="#"uk-slidenav-next  uk-slider-item="previous"></a>
+            <a class="uk-position-center-right uk-position-large font-weight-bold" href="#" uk-slidenav-previous uk-slider-item="next"></a>
+
+            {{--            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-right"></i></a>--}}
+{{--            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-left"></i></a>--}}
         </div>
         <br/>
         <br/>
 
 
         <p class="text-center font-weight-bold">{{$title->success ?? 'شركاء النجاح'}}</p>
-        <div uk-slider="center: false;autoplay: false" class="mb-5">
+        <div uk-slider="center: false;autoplay: true" class="mb-5">
 
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
-                <ul class="uk-slider-items uk-grid">
+                <ul class="uk-slider-items uk-grid" style="margin-right: 30px">
                     @foreach($success as $key => $i)
                         <li>
-                            <div class="uk-card uk-card-default" style="width: 300px">
+                            <div class="uk-card uk-card-default" style="width: 300px;height: 520px">
                                 <div class="uk-card-media-top">
                                     <img src="{{$i->img_url}}"
                                          alt="{{$i->name}}"
@@ -169,7 +177,7 @@
                                     >
                                 </div>
                                 <div class="uk-card-body">
-                                    <h3 class="uk-card-title">{{$i->name}}</h3>
+                                    <h3 class="uk-card-title" style="font-size: 20px!important;">{{$i->name}}</h3>
                                     <p>{{$i->desc}}</p>
                                     @if($i->twitter)
                                         <a href="{{$i->twitter}}" target="_blank" style="font-size: 20px" class="text-primary"><i class="fab fa-twitter"></i></a>
@@ -179,21 +187,14 @@
                         </li>
                     @endforeach
                 </ul>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-right"></i></a>
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-left"></i></a>
+                <a class="uk-position-center-left uk-position-large font-weight-bold" href="#"uk-slidenav-next  uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-large font-weight-bold" href="#"  uk-slidenav-previous uk-slider-item="next"></a>
+
+                {{--                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-right"></i></a>--}}
+{{--                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-left"></i></a>--}}
             </div>
             <br/>
             <br/>
-
-
-
-
-
-
-
-
-
-
     </div>
 </div>
 

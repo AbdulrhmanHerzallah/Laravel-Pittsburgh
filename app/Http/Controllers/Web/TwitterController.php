@@ -9,7 +9,7 @@ class TwitterController extends Controller
 {
     public function index()
     {
-        $iframe = Trailer::where('type' , '=' , 't')->paginate(4);
+        $iframe = Trailer::where('type' , '=' , 't')->orderBy('id' , 'DESC')->paginate(4);
         return view('web.spotify.index' , ['iframe' => $iframe]);
     }
 }

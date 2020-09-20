@@ -16,7 +16,7 @@ class CreateIframesTable extends Migration
         Schema::create('iframes', function (Blueprint $table) {
             $table->id();
 
-            $table->enum('type' , ['y' , 't' , 'p']);
+            $table->enum('type' , ['y' , 't' , 'p'])->nullable();
             $table->string('url_id')->nullable();
 
             $table->longText('iframe')->nullable();

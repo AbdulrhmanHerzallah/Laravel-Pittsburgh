@@ -10,7 +10,7 @@ class SpotifyController extends Controller
 {
     public function index()
     {
-        $iframe = Trailer::where('type' , '=' , 'p')->paginate(4);
+        $iframe = Trailer::where('type' , '=' , 'p')->orderBy('id' , 'DESC')->paginate(4);
         return view('web.spotify.index' , ['iframe' => $iframe]);
     }
 }

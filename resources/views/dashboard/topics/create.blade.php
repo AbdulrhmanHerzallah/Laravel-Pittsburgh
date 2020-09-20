@@ -7,9 +7,9 @@
             display: none !important;
         }
 
-        /*.note-editor .btn-toolbar button[data-event="showVideoDialog"] {*/
-        /*    display: none !important;*/
-        /*}*/
+        .note-editor .btn-toolbar button[data-event="showVideoDialog"] {
+            display: none !important;
+        }
     </style>
 
 
@@ -111,6 +111,8 @@
                 height: 300,
             })
         })
+
+        // font-family: 'Almarai', sans-serif;
     </script>
 
 

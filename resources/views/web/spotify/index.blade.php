@@ -11,7 +11,7 @@
                 {!! $y->iframe !!}
             </div>
             <div class="col-lg-6 mt-3 mb-3">
-                <h3>{{$y->title}}</h3>
+                <h3 style="font-family: 'Almarai', sans-serif !important;">{{$y->title}}</h3>
                 <hr>
                 <p>
                     {!! $y->desc !!}

@@ -21,6 +21,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button class="btn btn-primary" type="submit">حفظ الصور</button>
+                    <a href="/admin" class="btn btn-dark">تجاهل عملية حفظ الصور</a>
                 </div>
                 </div>
             </form>

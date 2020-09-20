@@ -51,7 +51,14 @@ class TrailerController extends Controller
 
         if ($request->type == 'y')
         {
-            $videoId = Youtube::parseVidFromURL($request->url_id);
+            try {
+                $videoId = Youtube::parseVidFromURL($request->url_id);
+            }catch (\Exception $exception)
+            {
+                Alert::warning('لا يبود انك قمت بارفاق رابط يوتيوب!');
+                return redirect()->back()->withErrors($y);
+            }
+
         }
 
         $trailer = Trailer::create(array_merge($request->except(['url_id' , 'title_slug']) , ['is_published' => 1 , 'url_id' => $videoId ?? null , 'slug' => $arabic_slug]));
@@ -82,7 +89,7 @@ class TrailerController extends Controller
 
     public function getAllTrailers()
     {
-        return view('dashboard.trailers.delete-trailer.index' , ['trailer' => Trailer::orderBy('updated_at', 'DESC')->get()]);
+        return view('dashboard.trailers.delete-trailer.index' , ['trailer' => Trailer::orderBy('id', 'DESC')->get()]);
     }
 
     public function search(Request $request)

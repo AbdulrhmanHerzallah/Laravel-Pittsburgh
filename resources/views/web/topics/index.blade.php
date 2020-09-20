@@ -3,23 +3,24 @@
 <head>
     <x-index.head/>
 {{--    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap" rel="stylesheet">--}}
-    <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
 
     <style>
         body{
             /*font-family: 'Tajawal', sans-serif;*/
-            font-family: 'Almarai', sans-serif;
+            font-family: 'Almarai', sans-serif !important;
 
             background-color: #dfe6e9
 
         }
         .main {
             font-size: 18px;text-align: justify;line-height: 2.5;padding: 0 160px 0 160px;margin-top: 15px;
+            font-family: 'Almarai', sans-serif !important;
         }
         .references{
             padding: 0 160px 75px 160px;
@@ -53,7 +54,7 @@
             <iframe width="100%" height="350" src="https://www.youtube.com/embed/{{$trailer->url_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
-        <h4 class="text-center font-weight-bold">{{$trailer->title}}</h4>
+        <h4 class="text-center font-weight-bold" style="font-family: 'Almarai', sans-serif !important;">{{$trailer->title}}</h4>
 @endif
 
 
@@ -63,7 +64,7 @@
                 {!! $trailer->iframe !!}
                 </div>
             </div>
-            <h4 class="text-center font-weight-bold">{{$trailer->title}}</h4>
+            <h4 class="text-center font-weight-bold" style="font-family: 'Almarai', sans-serif !important;">{{$trailer->title}}</h4>
         @endif
 
 
@@ -73,7 +74,7 @@
                     {!! $trailer->iframe !!}
                 </div>
             </div>
-            <h4 class="text-center font-weight-bold">{{$trailer->title}}</h4>
+            <h4 class="text-center font-weight-bold" style="font-family: 'Almarai', sans-serif !important;">{{$trailer->title}}</h4>
         @endif
 
         <div class="row d-flex justify-content-center mt-2">
@@ -120,7 +121,9 @@
 
 
                 <div class="main">
-                    {!! $topic->desc !!}
+                    <div style="font-family: 'Almarai', sans-serif !important;">
+                        {!! $topic->desc !!}
+                    </div>
                 </div>
 
                 <br/>
@@ -137,9 +140,9 @@
                         </li>
                         @endforeach
                     </ul>
-                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-left"></i></a>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover font-weight-bold" href="#" uk-slidenav-next  uk-slider-item="previous"></a>
 
-                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-right"></i></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover font-weight-bold" href="#" uk-slidenav-previous uk-slider-item="next"></a>
 
                 </div>
                 </div>
@@ -192,8 +195,8 @@
                             <section class="center slider">
                                 <div class="agileits_testimonial_grid">
                                     <div class="pk_testimonial_grid">
-                                        <h6 class="text-center" style="font-size: 20px !important;">{{$i->name}}</h6>
-                                        <h4 class="text-center">{{$i->desc}}</h4>
+                                        <h6 class="text-center" style="font-size: 20px !important;font-family: 'Almarai', sans-serif !important;">{{$i->name}}</h6>
+                                        <h4 class="text-center" style="font-family: 'Almarai', sans-serif !important;">{{$i->desc}}</h4>
 
                                         <div class="row text-center d-flex justify-content-center">
                                         @if($i->twitter == !null)
@@ -264,8 +267,8 @@
                                 <section class="center slider">
                                     <div class="agileits_testimonial_grid">
                                         <div class="pk_testimonial_grid">
-                                            <h6 class="text-center" style="font-size: 20px !important;">{{$i->name}}</h6>
-                                            <h4 class="text-center">{{$i->desc}}</h4>
+                                            <h6 class="text-center" style="font-size: 20px !important;font-family: 'Almarai', sans-serif !important;">{{$i->name}}</h6>
+                                            <h4 class="text-center" style="font-family: 'Almarai', sans-serif !important;">{{$i->desc}}</h4>
 
                                             <div class="row text-center d-flex justify-content-center">
                                                 @if($i->twitter == !null)

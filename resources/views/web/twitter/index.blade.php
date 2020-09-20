@@ -8,7 +8,7 @@
                 {!! $y->iframe !!}
             </div>
             <div class="col-lg-6 mt-3 mb-3">
-                <h3>{{$y->title}}</h3>
+                <p style="font-family: 'Almarai', sans-serif !important;">{{$y->title}}</p>
                 <hr>
                 <p>
                     {!! $y->desc !!}
