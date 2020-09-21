@@ -54,4 +54,9 @@
         }
     }
 
+    @media only screen and (max-width: 200px) {
+        #hell{
+            margin-right: 0 !important;
+        }
+    }
 </style>
