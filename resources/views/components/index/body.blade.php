@@ -128,7 +128,7 @@
         </div>
 
    <p class="text-center font-weight-bold">{{$title->volunteer ?? 'المتطوعون'}}</p>
-    <div uk-slider="center: true;autoplay: true" class="mb-5">
+    <div uk-slider="center: false;autoplay: false" class="mb-5" style="margin-right: 50px">
 
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
             <ul class="uk-slider-items uk-grid">
@@ -152,18 +152,16 @@
                     </li>
                 @endforeach
             </ul>
-            <a class="uk-position-center-left uk-position-large font-weight-bold" href="#"uk-slidenav-next  uk-slider-item="previous"></a>
-            <a class="uk-position-center-right uk-position-large font-weight-bold" href="#" uk-slidenav-previous uk-slider-item="next"></a>
+            <a class="uk-position-center-left uk-position-large font-weight-bold text-dark" href="#"uk-slidenav-next  uk-slider-item="previous"></a>
+            <a class="uk-position-center-right uk-position-large font-weight-bold text-dark" href="#" uk-slidenav-previous uk-slider-item="next"></a>
 
             {{--            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-right"></i></a>--}}
 {{--            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-left"></i></a>--}}
         </div>
-        <br/>
-        <br/>
 
 
         <p class="text-center font-weight-bold">{{$title->success ?? 'شركاء النجاح'}}</p>
-        <div uk-slider="center: true;autoplay: true" class="mb-5">
+        <div uk-slider="center: false;autoplay: false" class="mb-5">
 
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
@@ -188,8 +186,8 @@
                         </li>
                     @endforeach
                 </ul>
-                <a class="uk-position-center-left uk-position-large font-weight-bold" href="#"uk-slidenav-next  uk-slider-item="previous"></a>
-                <a class="uk-position-center-right uk-position-large font-weight-bold" href="#"  uk-slidenav-previous uk-slider-item="next"></a>
+                <a class="uk-position-center-left uk-position-large font-weight-bold text-dark" href="#"uk-slidenav-next  uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-large font-weight-bold text-dark" href="#"  uk-slidenav-previous uk-slider-item="next"></a>
 
                 {{--                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slider-item="previous"><i class="fas fa-arrow-alt-circle-right"></i></a>--}}
 {{--                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"  uk-slider-item="next"><i class="fas fa-arrow-alt-circle-left"></i></a>--}}
