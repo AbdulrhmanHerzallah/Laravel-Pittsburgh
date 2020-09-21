@@ -54,7 +54,7 @@
         }
     }
 
-    @media only screen and (max-width: 200px) {
+    @media only screen and (max-width: 400px) {
         #hell{
             margin-right: 0 !important;
         }
