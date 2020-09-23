@@ -21,6 +21,7 @@ class TrailerLinkController extends Controller
     public function store(TrailerLinksRequest $request)
     {
 
+
         foreach ($request->title as $index => $item)
         {
             TrailerLink::create([

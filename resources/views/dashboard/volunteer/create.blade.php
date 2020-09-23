@@ -89,6 +89,14 @@
                             <i class="fas fa-trash"></i>
                         </button>
                     </td>
+
+                    <td>
+                      <form action="{{route('dashboard.volunteer.sort' , ['id' => $i->id])}}" method="post">
+                          @csrf
+                          <button type="submit" class="btn btn-outline-warning"><i class="fas fa-sort-up"></i></button>
+                      </form>
+                    </td>
+
                 </tr>
             @endforeach
             </tbody>

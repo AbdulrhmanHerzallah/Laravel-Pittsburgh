@@ -61,4 +61,12 @@ class SuccessController extends Controller
         return redirect()->back();
     }
 
+    public function sort($id)
+    {
+        $vol = Success::find($id);
+        $vol->touch();
+        Alert::success(__('تم وضع الشريك في المقدمة!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+        return redirect()->back();
+    }
+
 }

@@ -14,6 +14,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 
 
+
+
 class TrailerController extends Controller
 {
     public function create()
@@ -114,13 +116,40 @@ class TrailerController extends Controller
           $trailer = Trailer::find($request->id);
           $trailer->title = $request->title;
           $arabic_slug = ArabicSlug::SetTitle($request->title);
+
+        if ($request->url_id) {
+            try
+            {
+                $videoId = Youtube::parseVidFromURL($request->url_id);
+                $trailer->url_id = $videoId;
+                $trailer->type = 'y';
+                $trailer->iframe = null;
+            } catch (\Exception $exception)
+            {
+                Alert::warning('لا يبود انك قمت بارفاق رابط يوتيوب!');
+                return redirect()->back();
+            }
+
+        }elseif ($request->podcast)
+        {
+            $trailer->iframe = $request->podcast;
+            $trailer->url_id = null;
+            $trailer->type = 'p';
+        }
+        elseif ($request->twitter)
+        {
+            $trailer->iframe = $request->twitter;
+            $trailer->url_id = null;
+            $trailer->type = 't';
+        }
           $trailer->slug = $arabic_slug;
+
           $trailer->save();
-          return redirect()->back();
+        Alert::success(__('تم تحديث البينات بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+
+        return redirect()->back();
 
     }
-
-
 
         public function updateTrailer(Request $request)
         {
@@ -131,6 +160,7 @@ class TrailerController extends Controller
             $trailer = Trailer::find($request->id);
             $trailer->desc = $request->desc;
             $trailer->save();
+            Alert::success(__('تم تحديث الوصف بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
             return redirect()->back();
         }
 
@@ -140,9 +170,19 @@ class TrailerController extends Controller
                 'desc' => 'required'
             ]);
 
+        try {
             $topic = Topic::where('trailer_id' , '=' , $request->id)->first();
             $topic->desc = $request->desc;
             $topic->save();
+            Alert::success(__('تم تحديث الموضوع بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
             return redirect()->back();
+        }
+        catch (\ErrorException $exception)
+        {
+            Topic::create(['desc' => $request->desc , 'trailer_id' => $request->id]);
+            Alert::success(__('تم تحديث الموضوع بنجاح!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+            return redirect()->back();
+        }
+
     }
 }

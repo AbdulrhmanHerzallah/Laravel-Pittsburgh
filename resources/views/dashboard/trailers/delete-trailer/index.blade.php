@@ -23,6 +23,8 @@
         <tr>
             <th scope="col">العنوان</th>
             <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -58,7 +60,16 @@
                 <i class="fas fa-edit"></i>
             </button>
         </td>
+         <td>
+             <a target="_blank" class="text-white" href="{{route('dashboard.update.index.img' , ['id' => $i->id])}}">تحديث الصور</a>
+         </td>
+                <td>
+                    <a target="_blank" class="text-white" href="{{route('dashboard.update.index.links' , ['id' => $i->id])}}">تحديث الروابط</a>
+                </td>
 
+                <td>
+                    <a target="_blank" class="text-white" href="{{route('dashboard.update.index.guests' , ['id' => $i->id])}}">تحديث الضيوف</a>
+                </td>
 
         <td>
             <form action="{{route('dashboard.trailer.active' , ['id' => $i->id])}}" method="post">
@@ -115,6 +126,35 @@
                         <label for="title" class="col-form-label">العنوان</label>
                         <input name="title" type="text" class="form-control" id="title">
                     </div>
+
+                    <div class="alert alert-warning" role="alert">
+                        ملاحظة يجب عليك اضافة واحد من الثلاثة فقط
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group" id="url_id" style="">
+                            <label for="url_id_y">Youtube Url</label>
+                            <input  type="text" onclick="url()"  class="form-control @error('url_id') is-invalid  @enderror"
+                                    name="url_id"
+                                    id="url_id_y" value="{{old('url_id')}}">
+                        </div>
+                    </div>
+
+                 <div class="form-group">
+                    <div class="form-group" id="iframe_twitter" style="">
+                        <label for="iframe_twitter_l">Embed twitter</label>
+                        <input  type="text" onclick="iframeE()" class="form-control @error('twitter') is-invalid  @enderror"
+                               id="iframe_twitter_l" name="twitter" value="{{old('twitter')}}">
+                    </div>
+                  </div>
+
+                    <div class="form-group">
+                        <div class="form-group" id="iframe_twitter" style="">
+                            <label for="iframe_twitter_l">Embed podcast</label>
+                            <input  type="text" onclick="iframeE()" class="form-control @error('podcast') is-invalid  @enderror"
+                                    id="iframe_twitter_l" name="podcast" value="{{old('podcast')}}">
+                        </div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
                 <form action="{{route('dashboard.trailer.update.trailer')}}" method="post">
@@ -137,6 +177,43 @@
                     <button type="submit" class="btn btn-primary">Save</button>
 
                 </form>
+
+                <form action="{{route('dashboard.iframe.update')}}" method="post">
+                    <br/>
+                    @csrf
+                    <input type="hidden" class="id" name="id">
+                    <div class="alert alert-warning" role="alert">
+                        ملاحظة يجب عليك اضافة واحد من الثلاثة فقط
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group" id="url_id" style="">
+                            <label for="url_id_y">Youtube Url</label>
+                            <input  type="text" onclick="url()"  class="form-control @error('url_id') is-invalid  @enderror"
+                                    name="url_id"
+                                    id="url_id_y" value="{{old('url_id')}}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group" id="iframe_twitter" style="">
+                            <label for="iframe_twitter_l">Embed twitter</label>
+                            <input  type="text" onclick="iframeE()" class="form-control @error('twitter') is-invalid  @enderror"
+                                    id="iframe_twitter_l" name="twitter" value="{{old('twitter')}}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group" id="iframe_twitter" style="">
+                            <label for="iframe_twitter_l">Embed podcast</label>
+                            <input  type="text" onclick="iframeE()" class="form-control @error('podcast') is-invalid  @enderror"
+                                    id="iframe_twitter_l" name="podcast" value="{{old('podcast')}}">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+
+                </form>
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -153,6 +230,21 @@
 @endsection
 
 @section('script')
+    <script>
+        function url()
+        {
+            document.getElementById('iframe_twitter_l').setAttribute('disabled')
+
+        }
+
+        function iframeE()
+        {
+            document.getElementById('url_id_y')
+
+        }
+    </script>
+
+
 <script>
     setTimeout(function (){
         document.getElementById('container').style.display = 'block'
@@ -197,6 +289,7 @@
 @section('script')
 
     <script>
+
         $(function () {
             // Summernote
             $('#topic').summernote({
@@ -206,4 +299,5 @@
             })
         })
     </script>
+
 @endsection

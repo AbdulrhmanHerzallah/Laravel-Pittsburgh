@@ -16,7 +16,7 @@
                 <!-- Grid column -->
                 <!-- Grid column -->
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
-                    <h6 class="mb-0">!تواصل معنا علي منصات التواصل الاجتماعي</h6>
+                    <h6 class="mb-0">!تواصل معنا على منصات التواصل الاجتماعي</h6>
                 </div>
                 <!-- Grid column -->
             </div>
@@ -101,7 +101,7 @@
     </div>
     <!-- Footer Links -->
     <!-- Copyright -->
-    <div class="footer-copyright text-center text-white py-3"  style="background-color: #161C27;">© {{Carbon\Carbon::now()->year}} جميع الحقوق محفوظة لقهوة بيستبرغ
+    <div class="footer-copyright text-center text-white py-3"  style="background-color: #161C27;">© {{Carbon\Carbon::now()->year}} جميع الحقوق محفوظة لقهوة بيتسبرغ
         <!--        <a class="dark-grey-text" href="https://mdbootstrap.com/"> google.com</a>-->
     </div>
     <!-- Copyright -->

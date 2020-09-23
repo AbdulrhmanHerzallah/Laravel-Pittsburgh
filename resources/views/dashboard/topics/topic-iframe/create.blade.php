@@ -43,8 +43,6 @@
                         <label for="iframe_twitter_l">Embed Iframe</label>
                         <input type="text" class="form-control @error('iframe') is-invalid  @enderror" id="iframe_twitter_l" name="iframe" value="{{old('iframe')}}">
                     </div>
-
-
                 </div>
 
                 <div class="container mb-3">

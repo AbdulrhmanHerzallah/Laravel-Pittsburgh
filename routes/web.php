@@ -66,6 +66,7 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
         Route::post('/store' , ['as' => 'store'   , 'uses' => 'VolunteerController@store']);
         Route::post('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'VolunteerController@delete']);
         Route::post('/update/{id}' , ['as' => 'update'  , 'uses' => 'VolunteerController@update']);
+        Route::post('/sort/{id}' , ['as' => 'sort'  , 'uses' => 'VolunteerController@sort']);
     });
 
        Route::group(['prefix' => '/footer-social-links'  , 'as' => 'footer_social_links.'] , function (){
@@ -95,6 +96,7 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
     Route::group(['prefix' => '/iframe'  , 'as' => 'iframe.'] , function (){
         Route::get('/create/{trailer_id}' , ['as' => 'create'  , 'uses' => 'IframeController@create']);
         Route::post('/store' , ['as' => 'store'  , 'uses' => 'IframeController@store']);
+        Route::post('/update' , ['as' => 'update' , 'uses' => 'IframeController@update']);
 
     });
 
@@ -136,8 +138,32 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
         Route::post('/store' , ['as' => 'store'  , 'uses' => 'SuccessController@store']);
         Route::post('/delete/{id}' , ['as' => 'delete'  , 'uses' => 'SuccessController@destroy']);
         Route::post('/update/{id}' , ['as' => 'update'  , 'uses' => 'SuccessController@update']);
+        Route::post('/sort/{id}' , ['as' => 'sort'  , 'uses' => 'SuccessController@sort']);
     });
+
+    Route::group(['prefix' => '/update'  , 'as' => 'update.'] , function (){
+        Route::get('/index/links/{id}' , ['as'  => 'index.links' , 'uses' => 'UpdateTopicController@indexLinks']);
+        Route::get('/index/guests/{id}' , ['as'  => 'index.guests' , 'uses' => 'UpdateTopicController@indexGuests']);
+        Route::get('/index/img/{id}' , ['as'  => 'index.img' , 'uses' => 'UpdateTopicController@indexImg']);
+
+
+        Route::post('/update/links' , ['as'  => 'update.links' , 'uses' => 'UpdateTopicController@updateLinks']);
+        Route::post('/update/guests' , ['as'  => 'update.guests' , 'uses' => 'UpdateTopicController@updateGuests']);
+        Route::post('/update/img' , ['as'  => 'update.img' , 'uses' => 'UpdateTopicController@updateImg']);
+
+
+    });
+
 
 });
 
 Route::post('/send-mail' , 'EmailController@store')->name('send.mail');
+
+//use App\Models\LandingPageVolunteer;
+//
+//Route::get('/test' , function (){
+//    return LandingPageVolunteer::orderBy('updated_at', 'DESC')->get();
+//
+//    $volunteer = LandingPageVolunteer::find(12);
+//    $volunteer->touch();
+//});

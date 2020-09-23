@@ -75,5 +75,13 @@ class VolunteerController extends Controller
         return redirect()->back();
     }
 
+    public function sort($id)
+    {
+        $vol = LandingPageVolunteer::find($id);
+        $vol->touch();
+        Alert::success(__('تم وضع المتطوع في المقدمة!'))->showConfirmButton(__('dashboard_layout.ok'), '#3085d6');
+        return redirect()->back();
+    }
+
 
 }
