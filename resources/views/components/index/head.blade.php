@@ -58,5 +58,9 @@
         #hell{
             margin-right: 0 !important;
         }
+        #success{
+            width: 170px !important;
+            height: 400px !important;
+        }
     }
 </style>

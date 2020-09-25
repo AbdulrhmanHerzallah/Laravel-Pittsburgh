@@ -172,7 +172,7 @@
                 <ul class="uk-slider-items uk-grid">
                     @foreach($success as $key => $i)
                         <li>
-                            <div class="uk-card uk-card-default" style="width: 300px;height: 520px">
+                            <div class="uk-card uk-card-default" style="width: 300px;height: 520px" id="success">
                                 <div class="uk-card-media-top">
                                     <img src="{{$i->img_url}}"
                                          alt="{{$i->name}}"

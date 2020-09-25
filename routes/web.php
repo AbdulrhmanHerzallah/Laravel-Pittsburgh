@@ -158,12 +158,3 @@ Route::group(['prefix' => '/admin' , 'namespace' => 'Dashboard' , 'as' => 'dashb
 });
 
 Route::post('/send-mail' , 'EmailController@store')->name('send.mail');
-
-//use App\Models\LandingPageVolunteer;
-//
-//Route::get('/test' , function (){
-//    return LandingPageVolunteer::orderBy('updated_at', 'DESC')->get();
-//
-//    $volunteer = LandingPageVolunteer::find(12);
-//    $volunteer->touch();
-//});
